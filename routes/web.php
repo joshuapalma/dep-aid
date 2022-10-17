@@ -23,9 +23,9 @@ use App\Http\Controllers\ChangePassword;
 use App\Http\Controllers\MainController;
 
 
-Route::get('/', [MainController::class, 'index'])->middleware('guest')->name('main');
+// Route::get('/home', [MainController::class, 'index'])->middleware('guest')->name('main');
 
-Route::get('/admin', function () {return redirect('/dashboard');})->middleware('auth');
+Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 	Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
 	Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
