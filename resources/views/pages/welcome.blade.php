@@ -21,16 +21,16 @@
         <link id="pagestyle" href="assets/css/argon-dashboard.css" rel="stylesheet" />
         <link href="./assets/css/custom.css" rel="stylesheet" />
     </head>
-    <body>
+    <body style="background-image: url('img/medical.svg'); background-size: cover; display: absolute;"> 
         <div class="container-fluid">
             <div class="row mt-5">
-                <div class="col-lg-3 col-md-2 text-center">
+                <div class="col-lg-3 col-md-4 col-4 text-center">
                     <img src="{{ asset('img/logos/dep-ed.png') }}" height="100">
                 </div>
-                <div class="col-lg-6 col-md-6 text-center">
+                <div class="col-lg-6 col-md-4 col-4 text-center">
                     <img src="{{ asset('img/logos/DEP-AID.png') }}" height="100">
                 </div>
-                <div class="col-lg-3 col-md-2 text-center">
+                <div class="col-lg-3 col-md-4 col-4 text-center">
                     <img src="{{ asset('img/logos/deped-malaybalay.jpg') }}" height="100">
                 </div>
             </div>
