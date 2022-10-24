@@ -45,4 +45,19 @@ class PageController extends Controller
     {
         return view("pages.sign-up-static");
     }
+
+    public function inventory()
+    {
+        return view("pages.inventory");
+    }
+
+    public function schedules()
+    {
+        return view("pages.schedule");
+    }
+
+    public function patients()
+    {
+        return view("pages.patients");
+    }
 }
