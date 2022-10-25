@@ -25,7 +25,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\ScheduleController;
 
-Route::get('/patient-form', [MainController::class, 'index'])->middleware('guest')->name('main');
+// Route::get('/patient-form', [MainController::class, 'index'])->middleware('guest')->name('main');
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
