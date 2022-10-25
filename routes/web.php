@@ -25,10 +25,10 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\ScheduleController;
 
-Route::get('/patient-form', [MainController::class, 'index'])->name('patient-form');
+// Route::get('/patient-form', [MainController::class, 'index'])->name('patient-form');
 
 
-// Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
+Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 	Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
 	Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
