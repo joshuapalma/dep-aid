@@ -27,7 +27,7 @@ use App\Http\Controllers\ScheduleController;
 
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
-	Route::get('/patient-form', [MainController::class, 'index'])->middleware('guest')->name('main');
+	Route::get('/patient-form', [MainController::class, 'index'])->name('main');
 
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 	Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
