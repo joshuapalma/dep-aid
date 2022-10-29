@@ -6,3 +6,8 @@ body, html {
 .text-black{
     color: black;
 }
+
+.navbar-vertical.navbar-expand-xs .navbar-collapse{
+    height: calc(100vh - 150px) !important;
+    overflow: none !important;
+}

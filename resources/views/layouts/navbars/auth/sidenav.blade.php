@@ -22,13 +22,70 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'inventory.index' ? 'active' : '' }}" href="{{ route('inventory.index') }}">
+                <a 
+                    class="nav-link 
+                    {{ Route::currentRouteName() == 'cardiac-drugs.index' ? 'active' : ''}} 
+                    {{ Route::currentRouteName() == 'anti-inflammatory.index' ? 'active' : ''  }} 
+                    {{ Route::currentRouteName() == 'ear-meds.index' ? 'active' : ''  }} 
+                    {{ Route::currentRouteName() == 'topicals.index' ? 'active' : ''  }} 
+                    {{ Route::currentRouteName() == 'antibiotics.index' ? 'active' : ''  }}" 
+                    href="#">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-warehouse text-success text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Inventory</span>
                 </a>
+
+                <div class="ms-4">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteName() == 'cardiac-drugs.index' ? 'active' : '' }}" href="{{ route('cardiac-drugs.index') }}">
+                                <div
+                                    class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="fa-solid fa-pills text-success text-sm opacity-10"></i>
+                                </div>
+                                Cardiac Drugs
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteName() == 'antibiotics.index' ? 'active' : '' }}" href="{{ route('antibiotics.index') }}">
+                                <div
+                                    class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="fa-solid fa-capsules text-success text-sm opacity-10"></i>
+                                </div>
+                                Antibiotics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteName() == 'anti-inflammatory.index' ? 'active' : '' }}" href="{{ route('anti-inflammatory.index') }}">
+                                <div
+                                    class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="fa-solid fa-prescription-bottle text-success text-sm opacity-10"></i>
+                                </div>
+                                Anti-Inflammatory
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteName() == 'ear-meds.index' ? 'active' : '' }}" href="{{ route('ear-meds.index') }}">
+                                <div
+                                    class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="fa-solid fa-tablets text-success text-sm opacity-10"></i>
+                                </div>
+                                Ear Meds
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteName() == 'topicals.index' ? 'active' : '' }}" href="{{ route('topicals.index') }}">
+                                <div
+                                    class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="fa-solid fa-prescription text-success text-sm opacity-10"></i>
+                                </div>
+                                Topicals
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'schedules.index' ? 'active' : '' }}" href="{{ route('schedules.index') }}">

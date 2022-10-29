@@ -60,4 +60,29 @@ class PageController extends Controller
     {
         return view("pages.patients");
     }
+
+    public function cardiacDrugs()
+    {
+        return view("pages.inventory-cardiac-drugs");
+    }
+
+    public function antibiotics()
+    {
+        return view("pages.inventory-antibiotics");
+    }
+
+    public function antiInflammatory()
+    {
+        return view("pages.inventory-anti-inflammatory");
+    }
+
+    public function earMeds()
+    {
+        return view("pages.inventory-ear-meds");
+    }
+
+    public function topicals()
+    {
+        return view("pages.inventory-topicals");
+    }
 }

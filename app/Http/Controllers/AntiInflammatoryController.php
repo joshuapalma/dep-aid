@@ -13,7 +13,7 @@ class AntiInflammatoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.anti-inflammatory');
     }
 
     /**

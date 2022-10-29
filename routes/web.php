@@ -46,15 +46,14 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-
-	Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
-	Route::get('/inventory/cardiac-drugs', [CardiacDrugsController::class, 'index'])->name('inventory.cardiac-drugs.index');
-	Route::get('/inventory/antibiotics', [AntibioticsController::class, 'index'])->name('inventory.antibiotics.index');
-	Route::get('/inventory/anti-inflammatory', [AntiInflammatoryController::class, 'index'])->name('inventory.anti-inflammatory.index');
-	Route::get('/inventory/ear-meds', [EarMedController::class, 'index'])->name('inventory.ear-meds.index');
-	Route::get('/inventory/topicals', [TopicalController::class, 'index'])->name('inventory.topicals.index');
-
 	Route::get('/schedules', [ScheduleController::class, 'index'])->name('schedules.index');
 	Route::get('/patients', [PatientsController::class, 'index'])->name('patients.index');
 	Route::get('/doctor-nurse', [DoctorNurseController::class, 'index'])->name('doctor-nurse.index');
+
+	Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
+	Route::get('/cardiac-drugs', [CardiacDrugsController::class, 'index'])->name('cardiac-drugs.index');
+	Route::get('/antibiotics', [AntibioticsController::class, 'index'])->name('antibiotics.index');
+	Route::get('/anti-inflammatory', [AntiInflammatoryController::class, 'index'])->name('anti-inflammatory.index');
+	Route::get('/ear-meds', [EarMedController::class, 'index'])->name('ear-meds.index');
+	Route::get('/topicals', [TopicalController::class, 'index'])->name('topicals.index');
 });
