@@ -13,14 +13,10 @@
             <div class="page-header min-vh-100">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
-                            <img src="{{ asset('/img/logos/DEP-AID.png') }}" class="mb-4 text-center" height="130">
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
                             <div class="card card-plain">
-                                <div class="card-header pb-0 text-start">
+                                <div class="card-header pb-0 text-center">
+                                    <img src="{{ asset('/img/logos/DEP-AID.png') }}" class="mb-4" height="100">
                                     <h4 class="font-weight-bolder">Sign In</h4>
                                 </div>
                                 <div class="card-body">

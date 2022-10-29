@@ -9,7 +9,7 @@
                     <div class="col-lg-12 col-md-12 d-flex justify-content-end">
                         <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#filterLeaveModal">Filter</button>
                         <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#exportLeaveModal">Generate Report</button>
-                        <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addLeaveModal">Add Patient</button>
+                        <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addLeaveModal">Add User</button>
                     </div>
                 </div>
             </div>
@@ -36,9 +36,10 @@
                               <thead>
                                 <tr>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">ID</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">Patient Name</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Scheduled Appointment</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Reason/s for Consultation</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">Name</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Position</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Specialization</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Availability</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Action</th>
                                 </tr>
                               </thead>
@@ -83,7 +84,7 @@
                                     </tr>
                                 @empty --}}
                                     <tr>
-                                        <td colspan="5" class="font-weight-bold text-center table-text">No Data Available</td>
+                                        <td colspan="6" class="font-weight-bold text-center table-text">No Data Available</td>
                                     </tr>
                                 {{-- @endforelse --}}
                               </tbody>
