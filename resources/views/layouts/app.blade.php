@@ -45,6 +45,7 @@
                     @yield('content')
                 </main>
             {{-- @include('components.fixed-plugin') --}}
+            @include('components.flash-message')
         @endif
     @endauth
 
