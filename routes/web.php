@@ -46,14 +46,16 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-	Route::get('/schedules', [ScheduleController::class, 'index'])->name('schedules.index');
-	Route::get('/patients', [PatientsController::class, 'index'])->name('patients.index');
-	Route::get('/doctor-nurse', [DoctorNurseController::class, 'index'])->name('doctor-nurse.index');
 
-	Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
-	Route::get('/cardiac-drugs', [CardiacDrugsController::class, 'index'])->name('cardiac-drugs.index');
-	Route::get('/antibiotics', [AntibioticsController::class, 'index'])->name('antibiotics.index');
-	Route::get('/anti-inflammatory', [AntiInflammatoryController::class, 'index'])->name('anti-inflammatory.index');
-	Route::get('/ear-meds', [EarMedController::class, 'index'])->name('ear-meds.index');
-	Route::get('/topicals', [TopicalController::class, 'index'])->name('topicals.index');
+
+	Route::resources([
+		'schedules' => ScheduleController::class,
+		'patients' => PatientsController::class,
+		'doctor-nurse' => DoctorNurseController::class,
+		'cardiac-drugs' => CardiacDrugsController::class,
+		'antibiotics' => AntibioticsController::class,
+		'anti-inflammatory' => AntiInflammatoryController::class,
+		'ear-meds' => EarMedController::class,
+		'topicals' => TopicalController::class
+	]);
 });
