@@ -17,7 +17,7 @@
                                 </div>
                             </div>
                             <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
                                     <i class="fa-solid fa-hospital-user text-lg opacity-10" aria-hidden="true"></i>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="row mt-3 mb-3">
-                            <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                            <div class="col-xl-4 col-sm-4 mb-xl-0 mb-4">
                                 <div class="card">
                                     <div class="card-body p-3">
                                         <div class="row">
@@ -69,15 +69,15 @@
                                                 </div>
                                             </div>
                                             <div class="col-4 text-end">
-                                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                                    <i class="fa-solid fa-hospital-user text-lg opacity-10" aria-hidden="true"></i>
+                                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
+                                                    <i class="fa-solid fa-pills text-lg opacity-10" aria-hidden="true"></i>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> 
                             </div>
-                            <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                            <div class="col-xl-4 col-sm-4 mb-xl-0 mb-4">
                                 <div class="card">
                                     <div class="card-body p-3">
                                         <div class="row">
@@ -90,15 +90,15 @@
                                                 </div>
                                             </div>
                                             <div class="col-4 text-end">
-                                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                                    <i class="fa-solid fa-hospital-user text-lg opacity-10" aria-hidden="true"></i>
+                                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
+                                                    <i class="fa-solid fa-capsules text-lg opacity-10" aria-hidden="true"></i>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                            <div class="col-xl-4 col-sm-4 mb-xl-0 mb-4">
                                 <div class="card">
                                     <div class="card-body p-3">
                                         <div class="row">
@@ -111,8 +111,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-4 text-end">
-                                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                                    <i class="fa-solid fa-hospital-user text-lg opacity-10" aria-hidden="true"></i>
+                                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
+                                                    <i class="fa-solid fa-tablets text-lg opacity-10" aria-hidden="true"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -135,8 +135,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-4 text-end">
-                                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                                    <i class="fa-solid fa-hospital-user text-lg opacity-10" aria-hidden="true"></i>
+                                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
+                                                    <i class="fa-solid fa-prescription text-lg opacity-10" aria-hidden="true"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -156,8 +156,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-4 text-end">
-                                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                                    <i class="fa-solid fa-hospital-user text-lg opacity-10" aria-hidden="true"></i>
+                                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
+                                                    <i class="fa-solid fa-prescription-bottle text-lg opacity-10" aria-hidden="true"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -171,7 +171,9 @@
         </div>
 
         <div class="row">
-            
+            <div class="col-lg-12">
+                GRAPHS
+            </div>
         </div>
     </div>
 @endsection
