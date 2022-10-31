@@ -131,6 +131,14 @@
                                 <div class="card-body">
                                     <form role="form" method="POST" action="{{ route('register.perform') }}">
                                         <div class="flex flex-col mb-3">
+                                            <input type="text" name="firstname" class="form-control" placeholder="First Name" aria-label="Name" value="{{ old('firstname') }}" >
+                                            @error('firstname') <p class='text-danger text-xs pt-1'> {{ $message }} </p> @enderror
+                                        </div>
+                                        <div class="flex flex-col mb-3">
+                                            <input type="text" name="lastname" class="form-control" placeholder="Last Name" aria-label="Name" value="{{ old('lastname') }}" >
+                                            @error('lastname') <p class='text-danger text-xs pt-1'> {{ $message }} </p> @enderror
+                                        </div>
+                                        <div class="flex flex-col mb-3">
                                             <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Name" value="{{ old('username') }}" >
                                             @error('username') <p class='text-danger text-xs pt-1'> {{ $message }} </p> @enderror
                                         </div>
@@ -143,7 +151,7 @@
                                             @error('password') <p class='text-danger text-xs pt-1'> {{ $message }} </p> @enderror
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn bg-gradient-success w-100 my-4 mb-2">Sign up</button>
+                                            <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2">Sign up</button>
                                         </div>
                                         <p class="text-sm mt-3 mb-0 text-center">Already have an account? <a href="{{ route('login') }}"
                                                 class="text-dark font-weight-bolder">Sign in</a></p>
