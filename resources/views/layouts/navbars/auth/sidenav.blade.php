@@ -16,7 +16,7 @@
                 <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-tv-2 text-success text-sm opacity-10"></i>
+                        <i class="ni ni-tv-2 text-info text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
@@ -32,7 +32,7 @@
                     href="#">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-warehouse text-success text-sm opacity-10"></i>
+                        <i class="fa-solid fa-warehouse text-info text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Inventory</span>
                 </a>
@@ -43,7 +43,7 @@
                             <a class="nav-link {{ Route::currentRouteName() == 'cardiac-drugs.index' ? 'active' : '' }}" href="{{ route('cardiac-drugs.index') }}">
                                 <div
                                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i class="fa-solid fa-pills text-success text-sm opacity-10"></i>
+                                    <i class="fa-solid fa-pills text-info text-sm opacity-10"></i>
                                 </div>
                                 Cardiac Drugs
                             </a>
@@ -52,7 +52,7 @@
                             <a class="nav-link {{ Route::currentRouteName() == 'antibiotics.index' ? 'active' : '' }}" href="{{ route('antibiotics.index') }}">
                                 <div
                                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i class="fa-solid fa-capsules text-success text-sm opacity-10"></i>
+                                    <i class="fa-solid fa-capsules text-info text-sm opacity-10"></i>
                                 </div>
                                 Antibiotics
                             </a>
@@ -61,7 +61,7 @@
                             <a class="nav-link {{ Route::currentRouteName() == 'anti-inflammatory.index' ? 'active' : '' }}" href="{{ route('anti-inflammatory.index') }}">
                                 <div
                                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i class="fa-solid fa-prescription-bottle text-success text-sm opacity-10"></i>
+                                    <i class="fa-solid fa-prescription-bottle text-info text-sm opacity-10"></i>
                                 </div>
                                 Anti-Inflammatory
                             </a>
@@ -70,7 +70,7 @@
                             <a class="nav-link {{ Route::currentRouteName() == 'ear-meds.index' ? 'active' : '' }}" href="{{ route('ear-meds.index') }}">
                                 <div
                                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i class="fa-solid fa-tablets text-success text-sm opacity-10"></i>
+                                    <i class="fa-solid fa-tablets text-info text-sm opacity-10"></i>
                                 </div>
                                 Ear Meds
                             </a>
@@ -79,7 +79,7 @@
                             <a class="nav-link {{ Route::currentRouteName() == 'topicals.index' ? 'active' : '' }}" href="{{ route('topicals.index') }}">
                                 <div
                                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i class="fa-solid fa-prescription text-success text-sm opacity-10"></i>
+                                    <i class="fa-solid fa-prescription text-info text-sm opacity-10"></i>
                                 </div>
                                 Topicals
                             </a>
@@ -91,7 +91,7 @@
                 <a class="nav-link {{ Route::currentRouteName() == 'schedules.index' ? 'active' : '' }}" href="{{ route('schedules.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa fa-calendar-days text-success text-sm opacity-10"></i>
+                        <i class="fa fa-calendar-days text-info text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Schedules</span>
                 </a>
@@ -100,7 +100,7 @@
                 <a class="nav-link {{ Route::currentRouteName() == 'patients.index' ? 'active' : '' }}" href="{{ route('patients.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa fa-user text-success text-sm opacity-10"></i>
+                        <i class="fa fa-user text-info text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Patients</span>
                 </a>
@@ -109,7 +109,7 @@
                 <a class="nav-link {{ Route::currentRouteName() == 'doctor-nurse.index' ? 'active' : '' }}" href="{{ route('doctor-nurse.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-user-doctor text-success text-sm opacity-10"></i>
+                        <i class="fa-solid fa-user-doctor text-info text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Doctor / Nurse</span>
                 </a>

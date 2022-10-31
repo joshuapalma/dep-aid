@@ -47,15 +47,49 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 Route::group(['middleware' => 'auth'], function () {
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
+	//Schedules
+	Route::get('/schedules', [ScheduleController::class, 'index'])->name('schedules.index');
 
-	Route::resources([
-		'schedules' => ScheduleController::class,
-		'patients' => PatientsController::class,
-		'doctor-nurse' => DoctorNurseController::class,
-		'cardiac-drugs' => CardiacDrugsController::class,
-		'antibiotics' => AntibioticsController::class,
-		'anti-inflammatory' => AntiInflammatoryController::class,
-		'ear-meds' => EarMedController::class,
-		'topicals' => TopicalController::class
-	]);
+	//Patients
+	Route::get('/patients', [PatientsController::class, 'index'])->name('patients.index');
+	Route::post('/patients/store', [PatientsController::class, 'store'])->name('patients.store');
+	Route::put('/patients/update/{id}', [PatientsController::class, 'update'])->name('patients.update');
+	Route::delete('/patients/destroy/{id}', [PatientsController::class, 'destroy'])->name('patients.destroy');
+	
+	//Doctor-Nurse
+	Route::get('/doctor-nurse', [DoctorNurseController::class, 'index'])->name('doctor-nurse.index');
+	Route::post('/doctor-nurse/store', [DoctorNurseController::class, 'store'])->name('doctor-nurse.store');
+	Route::put('/doctor-nurse/update/{id}', [DoctorNurseController::class, 'update'])->name('doctor-nurse.update');
+	Route::delete('/doctor-nurse/destroy/{id}', [DoctorNurseController::class, 'destroy'])->name('doctor-nurse.destroy');
+
+	//Inventory
+	//Cardiac Drugs
+	Route::get('/cardiac-drugs', [CardiacDrugsController::class, 'index'])->name('cardiac-drugs.index');
+	Route::post('/cardiac-drugs/store', [CardiacDrugsController::class, 'store'])->name('cardiac-drugs.store');
+	Route::put('/cardiac-drugs/update/{id}', [CardiacDrugsController::class, 'update'])->name('cardiac-drugs.update');
+	Route::delete('/cardiac-drugs/destroy/{id}', [CardiacDrugsController::class, 'destroy'])->name('cardiac-drugs.destroy');
+	
+	//Antibiotics
+	Route::get('/antibiotics', [AntibioticsController::class, 'index'])->name('antibiotics.index');
+	Route::post('/antibiotics/store', [AntibioticsController::class, 'store'])->name('antibiotics.store');
+	Route::put('/antibiotics/update/{id}', [AntibioticsController::class, 'update'])->name('antibiotics.update');
+	Route::delete('/antibiotics/destroy/{id}', [AntibioticsController::class, 'destroy'])->name('antibiotics.destroy');
+	
+	//Anti-Inflammatory
+	Route::get('/anti-inflammatory', [AntiInflammatoryController::class, 'index'])->name('anti-inflammatory.index');
+	Route::post('/anti-inflammatory/store', [AntiInflammatoryController::class, 'store'])->name('anti-inflammatory.store');
+	Route::put('/anti-inflammatory/ipdate/{id}', [AntiInflammatoryController::class, 'update'])->name('anti-inflammatory.update');
+	Route::delete('/anti-inflammatory/destroy/{id}', [AntiInflammatoryController::class, 'destroy'])->name('anti-inflammatory.destroy');
+	
+	//Ear-Meds
+	Route::get('/ear-meds', [EarMedController::class, 'index'])->name('ear-meds.index');
+	Route::post('/ear-meds/store', [EarMedController::class, 'store'])->name('ear-meds.store');
+	Route::put('/ear-meds/update/{id}', [EarMedController::class, 'update'])->name('ear-meds.update');
+	Route::delete('/ear-meds/destroy/{id}', [EarMedController::class, 'destroy'])->name('ear-meds.destroy');
+	
+	//Topicals
+	Route::get('/topicals', [TopicalController::class, 'index'])->name('topicals.index');
+	Route::post('/topicals/store', [TopicalController::class, 'store'])->name('topicals.store');
+	Route::put('/topicals/update/{id}', [TopicalController::class, 'update'])->name('topicals.update');
+	Route::delete('/topicals/destroy/{id}', [TopicalController::class, 'destroy'])->name('topicals.destroy');
 });

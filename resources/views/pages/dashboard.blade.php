@@ -17,7 +17,7 @@
                                 </div>
                             </div>
                             <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
+                                <div class="icon icon-shape bg-gradient-info shadow-primary text-center rounded-circle">
                                     <i class="fa-solid fa-hospital-user text-lg opacity-10" aria-hidden="true"></i>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
+                                <div class="icon icon-shape bg-gradient-info shadow-success text-center rounded-circle">
                                     <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-4 text-end">
-                                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
+                                                <div class="icon icon-shape bg-gradient-info shadow-primary text-center rounded-circle">
                                                     <i class="fa-solid fa-pills text-lg opacity-10" aria-hidden="true"></i>
                                                 </div>
                                             </div>
@@ -90,7 +90,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-4 text-end">
-                                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
+                                                <div class="icon icon-shape bg-gradient-info shadow-primary text-center rounded-circle">
                                                     <i class="fa-solid fa-capsules text-lg opacity-10" aria-hidden="true"></i>
                                                 </div>
                                             </div>
@@ -111,7 +111,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-4 text-end">
-                                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
+                                                <div class="icon icon-shape bg-gradient-info shadow-primary text-center rounded-circle">
                                                     <i class="fa-solid fa-tablets text-lg opacity-10" aria-hidden="true"></i>
                                                 </div>
                                             </div>
@@ -135,7 +135,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-4 text-end">
-                                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
+                                                <div class="icon icon-shape bg-gradient-info shadow-primary text-center rounded-circle">
                                                     <i class="fa-solid fa-prescription text-lg opacity-10" aria-hidden="true"></i>
                                                 </div>
                                             </div>
@@ -156,7 +156,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-4 text-end">
-                                                <div class="icon icon-shape bg-gradient-success shadow-primary text-center rounded-circle">
+                                                <div class="icon icon-shape bg-gradient-info shadow-primary text-center rounded-circle">
                                                     <i class="fa-solid fa-prescription-bottle text-lg opacity-10" aria-hidden="true"></i>
                                                 </div>
                                             </div>
