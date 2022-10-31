@@ -13,7 +13,8 @@ class DateFilter
             $from = date('Y-m-d' . ' 00:00:00', strtotime(request('from_date')));
             $to = date('Y-m-d' . ' 00:00:00', strtotime(request('to_date')));
 
-            $query->whereBetween('created_at', [$from, $to]);
+            $query->whereBetween('scheduled_appointment', [$from, $to])
+                ->orWhereBetween('created_at', [$from, $to]);
         }
 
         return $next($query);

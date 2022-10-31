@@ -13,7 +13,7 @@ class UpdatePatientsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdatePatientsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'patient_name' => ['string', 'nullable'],
+            'scheduled_appointment' => ['date', 'nullable'],
+            'reasons_for_consultation' => ['string', 'nullable'],
+            'remarks' => ['string', 'nullable']
         ];
     }
 }

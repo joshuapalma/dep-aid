@@ -25,7 +25,7 @@ class StorePatientsRequest extends FormRequest
     {
         return [
             'patient_name' => ['string', 'nullable'],
-            'scheduled_appointment' => ['datetime', 'nullable'],
+            'scheduled_appointment' => ['date', 'nullable'],
             'reasons_for_consultation' => ['string', 'nullable'],
             'remarks' => ['string', 'nullable']
         ];
