@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('middle_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('position')->nullable();
-            $table->string('specialization')->nullable();
-            $table->dateTime('availability')->nullable();
+            $table->string('availability_days')->nullable();
+            $table->time('availability_time')->nullable();
             $table->timestamps();
         });
     }
