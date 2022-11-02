@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreInventoryRequest;
+use App\Http\Requests\UpdateInventoryRequest;
+use App\Models\Inventory;
+use App\Repositories\CardiacDrugsRepository;
 use Illuminate\Http\Request;
 
 class CardiacDrugsController extends Controller
 {
+    public $cardiacDrugs;
+
+    public function __construct(CardiacDrugsRepository $cardiacDrugs)
+    {
+        $this->cardiacDrugs = $cardiacDrugs;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.cardiac-drugs');
+        $result = $this->cardiacDrugs->getAllCardiacDrugs($request);
+        return view('pages.cardiac-drugs', $result);
     }
 
     /**
@@ -32,9 +43,10 @@ class CardiacDrugsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreInventoryRequest $request)
     {
-        //
+        $this->cardiacDrugs->storeCardiacDrugs($request);
+        return redirect()->route('cardiac-drugs.index')->with('success', 'Cardiac Drug added successfully');
     }
 
     /**
@@ -66,9 +78,10 @@ class CardiacDrugsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateInventoryRequest $request, $id)
     {
-        //
+        $this->cardiacDrugs->updateCardiacDrugs($request, $id);
+        return redirect()->route('cardiac-drugs.index')->with('success', 'Cardiac Drug updated successfully');
     }
 
     /**
@@ -79,6 +92,7 @@ class CardiacDrugsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->cardiacDrugs->deleteCardiacDrugs($id);
+        return redirect()->route('cardiac-drugs.index')->with('success', 'Cardiac Drug deleted successfully');
     }
 }

@@ -9,7 +9,7 @@
                     <div class="col-lg-12 col-md-12 d-flex justify-content-end">
                         <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#filterLeaveModal">Filter</button>
                         <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#exportLeaveModal">Generate Report</button>
-                        <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addLeaveModal">Add Cardiac Drugs</button>
+                        <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addCardiacDrugs">Add Cardiac Drugs</button>
                     </div>
                 </div>
             </div>
@@ -19,8 +19,7 @@
                 <form action="{{route('cardiac-drugs.index')}}" method="GET">
                     <div class="form-group">
                         <div class="input-group">
-                            {{-- <input class="form-control" type="text" placeholder="Search.." name="search" value="{{ $requestData['search'] }}"> --}}
-                            <input class="form-control" type="text" placeholder="Search.." name="search" value="">
+                            <input class="form-control" type="text" placeholder="Search.." name="search" value="{{ $requestData['search'] }}">
                             <button class="search-btn" type="submit" style="border: none; border-top-right-radius: 10px; border-bottom-right-radius: 10px; backgropund-color: #ededed;"><i class="ni ni-zoom-split-in" style="padding-left: 5px; padding-right: 5px"></i></button>
                         </div>
                     </div>
@@ -102,6 +101,9 @@
             </div>
         </div>
     </div>
+    @include('modals.inventory.cardiac-drugs.create')
+    @include('modals.inventory.cardiac-drugs.edit')
+    @include('modals.inventory.cardiac-drugs.filter')
 @endsection
 
 @push('js')

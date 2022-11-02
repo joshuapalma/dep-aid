@@ -13,7 +13,7 @@ class StoreInventoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,8 +26,8 @@ class StoreInventoryRequest extends FormRequest
         return [
             'medicine_name' => ['string', 'nullable'],
             'brand' => ['string', 'nullable'],
-            'manufacturer_date' => ['datetime', 'nullable'],
-            'expiration_date' => ['datetime', 'nullable'],
+            'manufacturer_date' => ['date', 'nullable'],
+            'expiration_date' => ['date', 'nullable'],
             'type' => ['string', 'nullable']
         ];
     }
