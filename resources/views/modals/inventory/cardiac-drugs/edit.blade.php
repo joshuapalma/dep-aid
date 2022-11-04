@@ -41,6 +41,22 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
+                        @component('components.inputs.input')
+                            @slot('label', 'Type')
+                            @slot('attributes', [
+                                'class' => 'form-control',
+                                'type' => 'text',
+                                'name' => 'type',
+                                'id' => 'type',
+                                'placeholder' => 'Type',
+                                'value' => 'Cardiac Drugs',
+                                'readonly' => true
+                            ])          
+                        @endcomponent
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="example-date-input" class="form-control-label">Manufacturer Date</label>
                             <input class="form-control" type="date" value="" name="manufacturer_date" id="edit_manufacturer_date">

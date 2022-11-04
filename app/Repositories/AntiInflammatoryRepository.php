@@ -5,9 +5,9 @@ namespace App\Repositories;
 use App\Models\Inventory;
 use Illuminate\Pipeline\Pipeline;
 
-class CardiacDrugsRepository
+class AntiInflammatoryRepository
 {
-    public function getAllCardiacDrugs($request)
+    public function getAllAntiInflammatory($request)
     {
         //Add condition if one of the date filter is null
         $requestData = [
@@ -24,12 +24,12 @@ class CardiacDrugsRepository
             ])->thenReturn();
         
         $data = $result ? $result : $query;
-        $cardiacDrugs = $data->where('type', 'Cardiac Drugs')->paginate(10);
+        $antiInflammatory = $data->where('type', 'Anti-inflammatory')->paginate(10);
 
-        return compact('cardiacDrugs', 'requestData');
+        return compact('antiInflammatory', 'requestData');
     }
 
-    public function storeCardiacDrugs($request)
+    public function storeAntiInflammatory($request)
     {
         $query = Inventory::insertGetId([
             'medicine_name' => $request->medicine_name,
@@ -44,9 +44,9 @@ class CardiacDrugsRepository
         return $query;
     }
 
-    public function updateCardiacDrugs($request, $cardiacDrugsId)
+    public function updateAntiInflammatory($request, $antibioticId)
     {
-        $query = Inventory::where('id', $cardiacDrugsId)->update([
+        $query = Inventory::where('id', $antibioticId)->update([
             'medicine_name' => $request->medicine_name,
             'brand' => $request->brand,
             'manufacturer_date' => $request->manufacturer_date,
@@ -57,8 +57,8 @@ class CardiacDrugsRepository
         return $query;
     }
 
-    public function deleteCardiacDrugs($cardiacDrugsId)
+    public function deleteAntiInflammatory($antiInflammatoryId)
     {
-        return Inventory::find($cardiacDrugsId->id)->delete();
+        return Inventory::find($antiInflammatoryId->id)->delete();
     }
 }

@@ -78,7 +78,7 @@ Route::group(['middleware' => 'auth'], function () {
 	//Anti-Inflammatory
 	Route::get('/anti-inflammatory', [AntiInflammatoryController::class, 'index'])->name('anti-inflammatory.index');
 	Route::post('/anti-inflammatory/store', [AntiInflammatoryController::class, 'store'])->name('anti-inflammatory.store');
-	Route::put('/anti-inflammatory/ipdate/{id}', [AntiInflammatoryController::class, 'update'])->name('anti-inflammatory.update');
+	Route::put('/anti-inflammatory/update/{id}', [AntiInflammatoryController::class, 'update'])->name('anti-inflammatory.update');
 	Route::delete('/anti-inflammatory/destroy/{id}', [AntiInflammatoryController::class, 'destroy'])->name('anti-inflammatory.destroy');
 	
 	//Ear-Meds
