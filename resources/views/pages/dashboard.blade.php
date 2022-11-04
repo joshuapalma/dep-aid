@@ -12,7 +12,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Patients</p>
                                     <h5 class="font-weight-bolder">
-                                        100
+                                        {{ $patients }}
                                     </h5>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Scheduled Patients</p>
                                     <h5 class="font-weight-bolder">
-                                        3,462
+                                        {{ $schedule }}
                                     </h5>
                                 </div>
                             </div>
@@ -62,9 +62,9 @@
                                         <div class="row">
                                             <div class="col-8">
                                                 <div class="numbers">
-                                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Cardiac Drugs Count</p>
+                                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Cardiac Drugs</p>
                                                     <h5 class="font-weight-bolder">
-                                                        100
+                                                        {{ $inventory['cardiac-drugs'] }}
                                                     </h5>
                                                 </div>
                                             </div>
@@ -83,9 +83,9 @@
                                         <div class="row">
                                             <div class="col-8">
                                                 <div class="numbers">
-                                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Antibiotics Count</p>
+                                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Antibiotics</p>
                                                     <h5 class="font-weight-bolder">
-                                                        100
+                                                        {{ $inventory['antibiotics'] }}
                                                     </h5>
                                                 </div>
                                             </div>
@@ -104,9 +104,9 @@
                                         <div class="row">
                                             <div class="col-8">
                                                 <div class="numbers">
-                                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Ear Meds Count</p>
+                                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Ear Meds</p>
                                                     <h5 class="font-weight-bolder">
-                                                        100
+                                                        {{ $inventory['ear-meds'] }}
                                                     </h5>
                                                 </div>
                                             </div>
@@ -128,9 +128,9 @@
                                         <div class="row">
                                             <div class="col-8">
                                                 <div class="numbers">
-                                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Topicals Count</p>
+                                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Topicals</p>
                                                     <h5 class="font-weight-bolder">
-                                                        100
+                                                        {{ $inventory['topicals'] }}
                                                     </h5>
                                                 </div>
                                             </div>
@@ -149,9 +149,9 @@
                                         <div class="row">
                                             <div class="col-8">
                                                 <div class="numbers">
-                                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Anti-Inflammatory Count</p>
+                                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Anti-Inflammatory</p>
                                                     <h5 class="font-weight-bolder">
-                                                        100
+                                                        {{ $inventory['anti-inflammatory'] }}
                                                     </h5>
                                                 </div>
                                             </div>

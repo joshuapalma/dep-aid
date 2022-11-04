@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inventory;
+use App\Models\Schedule;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboard');
+        $patients = Patient::count();
+        $schedule = Schedule::count();
+        $inventory = [
+            'cardiac-drugs' => Inventory::where('type', 'Cardiac Drugs')->count(),
+            'antibiotics' => Inventory::where('type', 'Antibiotics')->count(),
+            'ear-meds' => Inventory::where('type', 'Ear Meds')->count(),
+            'topicals' => Inventory::where('type', 'Topicals')->count(),
+            'anti-inflammatory' => Inventory::where('type', 'Anti-Inflammatory')->count(),
+        ];
+
+        return view('pages.dashboard', compact('patients', 'schedule', 'inventory'));
     }
 }
