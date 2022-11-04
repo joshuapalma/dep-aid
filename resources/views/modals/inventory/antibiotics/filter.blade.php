@@ -1,4 +1,4 @@
-<div class="modal fade" id="filterCardiaDrugs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="filterAntibiotics" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -7,7 +7,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="{{ route('cardiac-drugs.index') }}" method="GET" id="filter-cardiac-drugs" enctype="multipart/form-data">
+        <form action="{{ route('antibiotics.index') }}" method="GET" id="filter-cardiac-drugs" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">

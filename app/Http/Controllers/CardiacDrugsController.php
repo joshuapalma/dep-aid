@@ -80,7 +80,6 @@ class CardiacDrugsController extends Controller
      */
     public function update(UpdateInventoryRequest $request, $id)
     {
-        dd($request->all());
         $this->cardiacDrugs->updateCardiacDrugs($request, $id);
         return redirect()->route('cardiac-drugs.index')->with('success', 'Cardiac Drug updated successfully');
     }
@@ -91,7 +90,7 @@ class CardiacDrugsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Inventory $id)
     {
         $this->cardiacDrugs->deleteCardiacDrugs($id);
         return redirect()->route('cardiac-drugs.index')->with('success', 'Cardiac Drug deleted successfully');

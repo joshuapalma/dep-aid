@@ -59,6 +59,6 @@ class CardiacDrugsRepository
 
     public function deleteCardiacDrugs($cardiacDrugsId)
     {
-        return Inventory::find($cardiacDrugsId)->delete();
+        return Inventory::find($cardiacDrugsId->id)->delete();
     }
 }

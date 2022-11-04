@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreInventoryRequest;
+use App\Http\Requests\UpdateInventoryRequest;
+use App\Models\Inventory;
+use App\Repositories\AntibioticsRepository;
 use Illuminate\Http\Request;
 
 class AntibioticsController extends Controller
 {
+    public $antibiotics;
+
+    public function __construct(AntibioticsRepository $antibiotics)
+    {
+        $this->antibiotics = $antibiotics;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.antibiotics');
+        $result = $this->antibiotics->getAllAntibiotic($request);
+        return view('pages.antibiotics', $result);
     }
 
     /**
@@ -32,9 +43,10 @@ class AntibioticsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreInventoryRequest $request)
     {
-        //
+        $this->antibiotics->storeAntibiotic($request);
+        return redirect()->route('antibiotics.index')->with('success', 'Antibiotics added successfully');
     }
 
     /**
@@ -66,9 +78,10 @@ class AntibioticsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateInventoryRequest $request, $id)
     {
-        //
+        $this->antibiotics->updateAntibiotic($request, $id);
+        return redirect()->route('antibiotics.index')->with('success', 'Antibiotics updated successfully');
     }
 
     /**
@@ -77,8 +90,9 @@ class AntibioticsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Inventory $id)
     {
-        //
+        $this->antibiotics->deleteAntibiotic($id);
+        return redirect()->route('antibiotics.index')->with('success', 'Antibiotics deleted successfully');
     }
 }
