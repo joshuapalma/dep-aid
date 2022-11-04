@@ -11,3 +11,10 @@ body, html {
     height: calc(100vh - 150px) !important;
     overflow: none !important;
 }
+
+.scheduler-calendar{
+    width:1500px; 
+    height:750px;
+    margin-left: auto; 
+    margin-right: auto;
+}
