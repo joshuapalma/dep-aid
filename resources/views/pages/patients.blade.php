@@ -109,21 +109,21 @@
 
 @push('js')
     <script>
-        $('#add-patient-form').validate({
-            rules: {
-                patient_name: {
-                    required: true
-                },
-                scheduled_appointment: {
-                    required: true
-                },
-                reasons_for_consultation: {
-                    required: true
-                },
-            },
-            errorElement: "span",
-            errorClass: "text-danger text-xs font-weight-bold",
-        })
+        // $('#add-patient-form').validate({
+        //     rules: {
+        //         patient_name: {
+        //             required: true
+        //         },
+        //         scheduled_appointment: {
+        //             required: true
+        //         },
+        //         reasons_for_consultation: {
+        //             required: true
+        //         },
+        //     },
+        //     errorElement: "span",
+        //     errorClass: "text-danger text-xs font-weight-bold",
+        // })
 
         function formatDate(date) {
             var d = new Date(date),

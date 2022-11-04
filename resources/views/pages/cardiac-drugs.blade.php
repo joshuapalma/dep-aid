@@ -66,7 +66,7 @@
                                                 type="button" 
                                                 class="btn bg-gradient-warning z-index-2" 
                                                 data-bs-toggle="modal" 
-                                                data-bs-target="#editLeaveModal" 
+                                                data-bs-target="#editCardiacDrugs" 
                                                 onclick = "editCardiacDrugs('{{$row->id}}')">
                                                 Edit
                                             </button>
@@ -104,8 +104,41 @@
     @include('modals.inventory.cardiac-drugs.create')
     @include('modals.inventory.cardiac-drugs.edit')
     @include('modals.inventory.cardiac-drugs.filter')
+    @include('modals.delete')
 @endsection
 
 @push('js')
-    
+    <script>
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2) 
+                month = '0' + month;
+            if (day.length < 2) 
+                day = '0' + day;
+
+            return [year, month, day].join('-');
+        }
+
+        function editCardiacDrugs(id) {
+            const detail = $(`#cardiac-drugs-details-${id}`).data().detail;     
+            newManufacturerDate = formatDate(detail.manufacturer_date);
+            newExpirationDate = formatDate(detail.expiration_date);
+
+            $('#edit_medicine_name').val(detail.medicine_name);            
+            $('#edit_brand').val(detail.brand);            
+            $('#edit_manufacturer_date').val(newManufacturerDate);
+            $('#edit_expiration_date').val(newExpirationDate);
+            $('#edit-cardiac-drug-form').attr('action', `/cardiac-drugs/update/${detail.id}`)
+        }
+
+        function deleteCardiacDrugs(btn) {
+            var data = $(btn).data();
+            var url = data.url;
+            $('#delete-form').attr('action', url);
+        }
+    </script>
 @endpush

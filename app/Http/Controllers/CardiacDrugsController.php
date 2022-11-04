@@ -80,6 +80,7 @@ class CardiacDrugsController extends Controller
      */
     public function update(UpdateInventoryRequest $request, $id)
     {
+        dd($request->all());
         $this->cardiacDrugs->updateCardiacDrugs($request, $id);
         return redirect()->route('cardiac-drugs.index')->with('success', 'Cardiac Drug updated successfully');
     }
