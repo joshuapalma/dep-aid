@@ -7,9 +7,9 @@
             <div class="col-lg-12 mb-lg-0 mb-4">
                 <div class="card z-index-2 h-100" style="background-color: transparent; border: none; box-shadow: none;">
                     <div class="col-lg-12 col-md-12 d-flex justify-content-end">
-                        <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#filterLeaveModal">Filter</button>
-                        <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#exportLeaveModal">Generate Report</button>
-                        <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addLeaveModal">Add Topicals</button>
+                        <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#filterTopicals">Filter</button>
+                        <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#exportTopicals">Generate Report</button>
+                        <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addTopicals">Add Topicals</button>
                     </div>
                 </div>
             </div>
@@ -19,8 +19,7 @@
                 <form action="{{route('topicals.index')}}" method="GET">
                     <div class="form-group">
                         <div class="input-group">
-                            {{-- <input class="form-control" type="text" placeholder="Search.." name="search" value="{{ $requestData['search'] }}"> --}}
-                            <input class="form-control" type="text" placeholder="Search.." name="search" value="">
+                            <input class="form-control" type="text" placeholder="Search.." name="search" value="{{ $requestData['search'] }}">
                             <button class="search-btn" type="submit" style="border: none; border-top-right-radius: 10px; border-bottom-right-radius: 10px; backgropund-color: #ededed;"><i class="ni ni-zoom-split-in" style="padding-left: 5px; padding-right: 5px"></i></button>
                         </div>
                     </div>
@@ -44,31 +43,31 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                {{-- @forelse ($leave as $index => $row)
+                                @forelse ($topicals as $index => $row)
                                     <tr class="text-center">
                                         <td>
-                                            <p class="text-xs font-weight-bold table-text mb-0">{{ $index + 1 }}</p>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ $row->id }}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($row->name) }}</p>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($row->medicine_name) }}</p>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->designation) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->brand) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->date_of_leave)) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->manufacturer_date)) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ getNatureOfLeave()[$row->nature_of_leave] }} {{ $row->specify_others ? '/ '.($row->specify_others) : "" }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->expiration_date)) }}</span>
                                         </td>
                                         <td class="align-middle">
-                                            <input type="hidden" id="leave-details-{{$row->id}}" data-detail="{{ $row }}">
+                                            <input type="hidden" id="topicals-details-{{$row->id}}" data-detail="{{ $row }}">
                                             <button 
                                                 type="button" 
                                                 class="btn bg-gradient-warning z-index-2" 
                                                 data-bs-toggle="modal" 
-                                                data-bs-target="#editLeaveModal" 
-                                                onclick = "editLeave('{{$row->id}}')">
+                                                data-bs-target="#editTopicals" 
+                                                onclick = "editTopicals('{{$row->id}}')">
                                                 Edit
                                             </button>
                                             <button 
@@ -76,34 +75,70 @@
                                                 class="btn bg-gradient-danger z-index-2 drop" 
                                                 data-bs-toggle="modal" 
                                                 data-bs-target="#deleteModal"
-                                                data-url="{{ route('leave.destroy', $row->id) }}"
-                                                onclick = "deleteLeave(this)">
+                                                data-url="{{ route('topicals.destroy', $row->id) }}"
+                                                onclick = "deleteTopicals(this)">
                                                 Delete
                                             </button>
                                         </td>
                                     </tr>
-                                @empty --}}
+                                @empty
                                     <tr>
                                         <td colspan="6" class="font-weight-bold text-center table-text">No Data Available</td>
                                     </tr>
-                                {{-- @endforelse --}}
+                                @endforelse
                               </tbody>
                             </table>
                         </div>
-                        {{-- <div class="table-pagination p-5">
+                        <div class="table-pagination p-5">
                             <div class="row">
                                 <div class="row col-sm-12 col-md-12 col-lg-12 font-weight-600"">
-                                    {{$leave->appends(['search' => isset($requestData->search) ? $requestData->search : null])->links('components.pagination')}}
+                                    {{$topicals->appends(['search' => isset($requestData->search) ? $requestData->search : null])->links('components.pagination')}}
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @include('modals.inventory.topicals.create')
+    @include('modals.inventory.topicals.edit')
+    @include('modals.inventory.topicals.filter')
+    @include('modals.delete')
 @endsection
 
 @push('js')
-    
+    <script>
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2) 
+                month = '0' + month;
+            if (day.length < 2) 
+                day = '0' + day;
+
+            return [year, month, day].join('-');
+        }
+
+        function editTopicals(id) {
+            const detail = $(`#topicals-details-${id}`).data().detail;     
+            newManufacturerDate = formatDate(detail.manufacturer_date);
+            newExpirationDate = formatDate(detail.expiration_date);
+
+            $('#edit_medicine_name').val(detail.medicine_name);            
+            $('#edit_brand').val(detail.brand);            
+            $('#edit_manufacturer_date').val(newManufacturerDate);
+            $('#edit_expiration_date').val(newExpirationDate);
+            $('#edit-topicals-form').attr('action', `/topicals/update/${detail.id}`)
+        }
+
+        function deleteTopicals(btn) {
+            var data = $(btn).data();
+            var url = data.url;
+            $('#delete-form').attr('action', url);
+        }
+    </script>
 @endpush

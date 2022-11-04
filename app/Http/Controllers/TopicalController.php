@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreInventoryRequest;
+use App\Http\Requests\UpdateInventoryRequest;
+use App\Models\Inventory;
+use App\Repositories\TopicalsRepository;
 use Illuminate\Http\Request;
 
 class TopicalController extends Controller
 {
+    public $topicals;
+
+    public function __construct(TopicalsRepository $topicals)
+    {
+        $this->topicals = $topicals;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.topicals');
+        $result = $this->topicals->getAllTopicals($request);
+        return view('pages.topicals', $result);
     }
 
     /**
@@ -32,9 +43,10 @@ class TopicalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreInventoryRequest $request)
     {
-        //
+        $this->topicals->storeTopicals($request);
+        return redirect()->route('topicals.index')->with('success', 'Topicals added successfully');
     }
 
     /**
@@ -66,9 +78,10 @@ class TopicalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateInventoryRequest $request, Inventory $id)
     {
-        //
+        $this->topicals->updateTopicals($request, $id);
+        return redirect()->route('topicals.index')->with('success', 'Topicals updated successfully');
     }
 
     /**
@@ -77,8 +90,9 @@ class TopicalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Inventory $id)
     {
-        //
+        $this->topicals->deleteTopicals($id);
+        return redirect()->route('topicals.index')->with('success', 'Topicals deleted successfully');
     }
 }
