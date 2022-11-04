@@ -44,43 +44,43 @@
                               </thead>
                               <tbody>
                                 @forelse ($antiInflammatory as $index => $row)
-                                <tr class="text-center">
-                                    <td>
-                                        <p class="text-xs font-weight-bold table-text mb-0">{{ $row->id }}</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($row->medicine_name) }}</p>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->brand) }}</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->manufacturer_date)) }}</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->expiration_date)) }}</span>
-                                    </td>
-                                    <td class="align-middle">
-                                        <input type="hidden" id="anti-inflammatory-details-{{$row->id}}" data-detail="{{ $row }}">
-                                        <button 
-                                            type="button" 
-                                            class="btn bg-gradient-warning z-index-2" 
-                                            data-bs-toggle="modal" 
-                                            data-bs-target="#editAntiInflammatory" 
-                                            onclick = "editAntiInflammatory('{{$row->id}}')">
-                                            Edit
-                                        </button>
-                                        <button 
-                                            type="button" 
-                                            class="btn bg-gradient-danger z-index-2 drop" 
-                                            data-bs-toggle="modal" 
-                                            data-bs-target="#deleteModal"
-                                            data-url="{{ route('anti-inflammatory.destroy', $row->id) }}"
-                                            onclick = "deleteAntiInflammatory(this)">
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
+                                    <tr class="text-center">
+                                        <td>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ $row->id }}</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($row->medicine_name) }}</p>
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->brand) }}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->manufacturer_date)) }}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->expiration_date)) }}</span>
+                                        </td>
+                                        <td class="align-middle">
+                                            <input type="hidden" id="anti-inflammatory-details-{{$row->id}}" data-detail="{{ $row }}">
+                                            <button 
+                                                type="button" 
+                                                class="btn bg-gradient-warning z-index-2" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#editAntiInflammatory" 
+                                                onclick = "editAntiInflammatory('{{$row->id}}')">
+                                                Edit
+                                            </button>
+                                            <button 
+                                                type="button" 
+                                                class="btn bg-gradient-danger z-index-2 drop" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#deleteModal"
+                                                data-url="{{ route('anti-inflammatory.destroy', $row->id) }}"
+                                                onclick = "deleteAntiInflammatory(this)">
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
                                 @empty
                                     <tr>
                                         <td colspan="6" class="font-weight-bold text-center table-text">No Data Available</td>

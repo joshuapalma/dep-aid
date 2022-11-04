@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreInventoryRequest;
+use App\Http\Requests\UpdateInventoryRequest;
+use App\Repositories\EarMedsRepository;
+use App\Models\Inventory;
 use Illuminate\Http\Request;
 
 class EarMedController extends Controller
 {
+    public $earMeds;
+
+    public function __construct(EarMedsRepository $earMeds)
+    {
+        $this->earMeds = $earMeds;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.ear-meds');
+        $result = $this->earMeds->getAllEarMeds($request);
+        return view('pages.ear-meds', $result);
     }
 
     /**
@@ -32,9 +43,10 @@ class EarMedController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreInventoryRequest $request)
     {
-        //
+        $this->earMeds->storeEarMeds($request);
+        return redirect()->route('ear-meds.index')->with('success', 'Ear Meds added successfully');
     }
 
     /**
@@ -66,9 +78,10 @@ class EarMedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateInventoryRequest $request, $id)
     {
-        //
+        $this->earMeds->updateEarMeds($request, $id);
+        return redirect()->route('ear-meds.index')->with('success', 'Ear Meds updated successfully');
     }
 
     /**
@@ -77,8 +90,9 @@ class EarMedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Inventory $id)
     {
-        //
+        $this->earMeds->deleteEarMeds($id);
+        return redirect()->route('ear-meds.index')->with('success', 'Ear Meds deleted successfully');
     }
 }
