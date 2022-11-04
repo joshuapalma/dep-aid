@@ -13,13 +13,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                           <label for="example-date-input" class="form-control-label">From</label>
-                          <input class="form-control" type="date" value="" name="from_date" id="from_date">
+                          <input class="form-control" type="date" value="" name="from_date_patient_tbl" id="from_date">
                       </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                           <label for="example-date-input" class="form-control-label">To</label>
-                          <input class="form-control" type="date" value="" name="to_date" id="to_date">
+                          <input class="form-control" type="date" value="" name="to_date_patient_tbl" id="to_date">
                       </div>
                     </div>
                 </div>

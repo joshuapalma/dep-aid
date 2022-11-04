@@ -23,7 +23,7 @@ class PatientsRepository
             ])->thenReturn();
 
         $data = $result ? $result : $query;
-        $patient = $data->orderBy('created_at', 'DESC')->paginate(10);
+        $patient = $data->paginate(10);
 
         return compact('patient', 'requestData');
     }

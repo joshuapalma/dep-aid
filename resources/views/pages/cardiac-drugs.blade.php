@@ -7,7 +7,7 @@
             <div class="col-lg-12 mb-lg-0 mb-4">
                 <div class="card z-index-2 h-100" style="background-color: transparent; border: none; box-shadow: none;">
                     <div class="col-lg-12 col-md-12 d-flex justify-content-end">
-                        <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#filterLeaveModal">Filter</button>
+                        <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#filterCardiaDrugs">Filter</button>
                         <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#exportLeaveModal">Generate Report</button>
                         <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addCardiacDrugs">Add Cardiac Drugs</button>
                     </div>
@@ -43,31 +43,31 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                {{-- @forelse ($leave as $index => $row)
+                                @forelse ($cardiacDrugs as $index => $row)
                                     <tr class="text-center">
                                         <td>
-                                            <p class="text-xs font-weight-bold table-text mb-0">{{ $index + 1 }}</p>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ $row->id }}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($row->name) }}</p>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($row->medicine_name) }}</p>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->designation) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->brand) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->date_of_leave)) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->manufacturer_date)) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ getNatureOfLeave()[$row->nature_of_leave] }} {{ $row->specify_others ? '/ '.($row->specify_others) : "" }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->expiration_date)) }}</span>
                                         </td>
                                         <td class="align-middle">
-                                            <input type="hidden" id="leave-details-{{$row->id}}" data-detail="{{ $row }}">
+                                            <input type="hidden" id="cardiac-drugs-details-{{$row->id}}" data-detail="{{ $row }}">
                                             <button 
                                                 type="button" 
                                                 class="btn bg-gradient-warning z-index-2" 
                                                 data-bs-toggle="modal" 
                                                 data-bs-target="#editLeaveModal" 
-                                                onclick = "editLeave('{{$row->id}}')">
+                                                onclick = "editCardiacDrugs('{{$row->id}}')">
                                                 Edit
                                             </button>
                                             <button 
@@ -75,27 +75,27 @@
                                                 class="btn bg-gradient-danger z-index-2 drop" 
                                                 data-bs-toggle="modal" 
                                                 data-bs-target="#deleteModal"
-                                                data-url="{{ route('leave.destroy', $row->id) }}"
-                                                onclick = "deleteLeave(this)">
+                                                data-url="{{ route('cardiac-drugs.destroy', $row->id) }}"
+                                                onclick = "deleteCardiacDrugs(this)">
                                                 Delete
                                             </button>
                                         </td>
                                     </tr>
-                                @empty --}}
+                                @empty
                                     <tr>
                                         <td colspan="6" class="font-weight-bold text-center table-text">No Data Available</td>
                                     </tr>
-                                {{-- @endforelse --}}
+                                @endforelse
                               </tbody>
                             </table>
                         </div>
-                        {{-- <div class="table-pagination p-5">
+                        <div class="table-pagination p-5">
                             <div class="row">
                                 <div class="row col-sm-12 col-md-12 col-lg-12 font-weight-600"">
-                                    {{$leave->appends(['search' => isset($requestData->search) ? $requestData->search : null])->links('components.pagination')}}
+                                    {{$cardiacDrugs->appends(['search' => isset($requestData->search) ? $requestData->search : null])->links('components.pagination')}}
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>

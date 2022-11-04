@@ -9,6 +9,7 @@ class CardiacDrugsRepository
 {
     public function getAllCardiacDrugs($request)
     {
+        //Add condition if one of the date filter is null
         $requestData = [
             'search' => isset($request->search) ? $request->search : null
         ];
@@ -21,9 +22,9 @@ class CardiacDrugsRepository
                 \App\Pipelines\Search\SearchInventoryTable::class,
                 \App\Pipelines\Filter\DateFilter::class
             ])->thenReturn();
-
+        
         $data = $result ? $result : $query;
-        $cardiacDrugs = $data->orderBy('created_at', 'DESC')->paginate(10);
+        $cardiacDrugs = $data->where('type', 'Cardiac Drugs')->paginate(10);
 
         return compact('cardiacDrugs', 'requestData');
     }

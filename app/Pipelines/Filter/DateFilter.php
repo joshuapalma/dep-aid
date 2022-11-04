@@ -9,12 +9,26 @@ class DateFilter
 {
     public function handle(Builder $query, Closure $next)
     {
-        if (request()->has('from_date') && request()->has('to_date')) {
-            $from = date('Y-m-d' . ' 00:00:00', strtotime(request('from_date')));
-            $to = date('Y-m-d' . ' 00:00:00', strtotime(request('to_date')));
+        if (request()->has('from_date_patient_tbl') && request()->has('to_date_patient_tbl')) {
+            $from = date('Y-m-d' . ' 00:00:00', strtotime(request('from_date_patient_tbl')));
+            $to = date('Y-m-d' . ' 00:00:00', strtotime(request('to_date_patient_tbl')));
 
-            $query->whereBetween('scheduled_appointment', [$from, $to])
-                ->orWhereBetween('created_at', [$from, $to]);
+            $query->whereBetween('scheduled_appointment', [$from, $to]);
+        }
+
+        //Fix Me ASAP
+        if(request()->has('from_date_inventory_tbl') && request()->has('to_date_inventory_tbl')) {
+            $from = date('Y-m-d' . ' 00:00:00', strtotime(request('from_date_inventory_tbl')));
+            $to = date('Y-m-d' . ' 00:00:00', strtotime(request('to_date_inventory_tbl')));
+
+            $query->whereBetween('manufacturer_date', [$from, $to]);
+        }
+
+        if(request()->has('from_date_inventory_tbl') && request()->has('to_date_inventory_tbl')) {
+            $from = date('Y-m-d' . ' 00:00:00', strtotime(request('from_date_inventory_tbl')));
+            $to = date('Y-m-d' . ' 00:00:00', strtotime(request('to_date_inventory_tbl')));
+
+            $query->whereBetween('expiration_date', [$from, $to]);
         }
 
         return $next($query);
