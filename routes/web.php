@@ -32,6 +32,7 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TopicalController;
 
 Route::get('/patient-form', [MainController::class, 'index'])->name('patient-form');
+Route::get('/test', [MainController::class, 'store'])->name('patient-form.store');
 
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
