@@ -9,9 +9,8 @@ class TopicalsRepository
 {
     public function getAllTopicals($request)
     {
-        //Add condition if one of the date filter is null
         $requestData = [
-            'search' => isset($request->search) ? $request->search : null
+            'search' => isset($request->search) ? $request->search : null, 
         ];
 
         $query = Inventory::query();
