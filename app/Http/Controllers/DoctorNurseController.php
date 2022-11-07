@@ -2,10 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\DoctorNurseRepository;
+use App\Http\Requests\StoreDoctorNurseRequest;
+use App\Http\Requests\UpdateDoctorNurseRequest;
+use App\Models\DoctorNurse;
 use Illuminate\Http\Request;
 
 class DoctorNurseController extends Controller
 {
+    public $doctorNurse;
+
+    public function __construct(StoreDoctorNurseRequest $doctorNurse)
+    {
+        $this->doctorNurse = $doctorNurse;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +44,7 @@ class DoctorNurseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

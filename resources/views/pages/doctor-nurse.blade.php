@@ -9,7 +9,7 @@
                     <div class="col-lg-12 col-md-12 d-flex justify-content-end">
                         <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#filterLeaveModal">Filter</button>
                         <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#exportLeaveModal">Generate Report</button>
-                        <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addLeaveModal">Add User</button>
+                        <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addDoctorNurse">Add User</button>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,6 @@
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">ID</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">Name</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Position</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Specialization</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Availability</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Action</th>
                                 </tr>
@@ -102,6 +101,8 @@
             </div>
         </div>
     </div>
+    @include('modals.doctor-nurse.create')
+    @include('modals.doctor-nurse.edit')
 @endsection
 
 @push('js')
