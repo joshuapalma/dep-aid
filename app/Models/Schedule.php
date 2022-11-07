@@ -10,6 +10,6 @@ class Schedule extends Model
     use HasFactory;
 
     protected $table = 'schedules';
-    protected $fillable = ['patient_name', 'scheduled_date'];
+    protected $fillable = ['patient_information', 'start_date', 'end_date'];
     protected $guarded = [];
 }

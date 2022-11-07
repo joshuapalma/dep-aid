@@ -1,6 +1,7 @@
-body, html {
-    margin: 0;
-    padding: 0;
+html, body{
+    height:100%;
+    padding:0px;
+    margin:0px;
 }
 
 .text-black{
@@ -13,8 +14,8 @@ body, html {
 }
 
 .scheduler-calendar{
-    width:1500px; 
-    height:750px;
+    /* width:1500px; 
+    height:750px; */
     margin-left: auto; 
     margin-right: auto;
 }
