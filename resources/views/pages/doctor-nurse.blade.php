@@ -106,5 +106,69 @@
 @endsection
 
 @push('js')
-    
+    <script>
+        $('#is_working_monday').on('change', function() {
+            let checker = $(this).prop('checked');
+
+            if (checker == true){
+                $(this).val(1);
+            } else {
+                $(this).val(0);
+            }
+        })
+        $('#is_working_tuesday').on('change', function() {
+            let checker = $(this).prop('checked');
+
+            if (checker == true){
+                $(this).val(1);
+            } else {
+                $(this).val(0);
+            }
+        })
+        $('#is_working_wednesday').on('change', function() {
+            let checker = $(this).prop('checked');
+
+            if (checker == true){
+                $(this).val(1);
+            } else {
+                $(this).val(0);
+            }
+        })
+        $('#is_working_thursday').on('change', function() {
+            let checker = $(this).prop('checked');
+
+            if (checker == true){
+                $(this).val(1);
+            } else {
+                $(this).val(0);
+            }
+        })
+        $('#is_working_friday').on('change', function() {
+            let checker = $(this).prop('checked');
+
+            if (checker == true){
+                $(this).val(1);
+            } else {
+                $(this).val(0);
+            }
+        })
+        $('#is_working_saturday').on('change', function() {
+            let checker = $(this).prop('checked');
+
+            if (checker == true){
+                $(this).val(1);
+            } else {
+                $(this).val(0);
+            }
+        })
+        $('#is_working_sunday').on('change', function() {
+            let checker = $(this).prop('checked');
+
+            if (checker == true){
+                $(this).val(1);
+            } else {
+                $(this).val(0);
+            }
+        })
+    </script>
 @endpush

@@ -79,7 +79,7 @@
                             @slot('attributes', [
                                 'class' => 'form-control',
                                 'type' => 'text',
-                                'name' => 'monday',
+                                'name' => 'day[0]',
                                 'id' => 'monday',
                                 'value' => 'monday',
                                 'placeholder' => 'Position',
@@ -90,18 +90,18 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">From</label>
-                            <input class="form-control" type="time" value="" id="monday_from">
+                            <input class="form-control" type="time" value="" id="monday_from" name="from_time[0]">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">To</label>
-                            <input class="form-control" type="time" value="" id="monday_to">
+                            <input class="form-control" type="time" value="" id="monday_to" name="to_time[0]">
                         </div>
                     </div>
                     <div class="col-md-3 mt-2-custom">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="is_working" value="" id="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" name="is_working[0]" value="" id="is_working_monday">
                             <label for="flexCheckChecked">
                             Day-off / No work
                             </label>
@@ -115,7 +115,7 @@
                             @slot('attributes', [
                                 'class' => 'form-control',
                                 'type' => 'text',
-                                'name' => 'tuesday',
+                                'name' => 'day[1]',
                                 'id' => 'tuesday',
                                 'value' => 'tuesday',
                                 'placeholder' => 'Position',
@@ -126,18 +126,18 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">From</label>
-                            <input class="form-control" type="time" value="" id="tuesday_from">
+                            <input class="form-control" type="time" value="" id="tuesday_from" name="from_time[1]">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">To</label>
-                            <input class="form-control" type="time" value="" id="tuesday_to">
+                            <input class="form-control" type="time" value="" id="tuesday_to" name="to_time[1]">
                         </div>
                     </div>
                     <div class="col-md-3 mt-2-custom">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="is_working" value="" id="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" name="is_working[1]" value="" id="is_working_tuesday">
                             <label for="flexCheckChecked">
                             Day-off / No work
                             </label>
@@ -151,7 +151,7 @@
                             @slot('attributes', [
                                 'class' => 'form-control',
                                 'type' => 'text',
-                                'name' => 'wednesday',
+                                'name' => 'day[2]',
                                 'id' => 'wednesday',
                                 'value' => 'wednesday',
                                 'placeholder' => 'Position',
@@ -162,18 +162,18 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">From</label>
-                            <input class="form-control" type="time" value="" id="wednesday_from">
+                            <input class="form-control" type="time" value="" id="wednesday_from" name="from_time[2]">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">To</label>
-                            <input class="form-control" type="time" value="" id="wednesdayday_to">
-                        </div>
+                            <input class="form-control" type="time" value="" id="wednesday_to" name="to_time[2]">
+                        </div> 
                     </div>
                     <div class="col-md-3 mt-2-custom">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="is_working" value="" id="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" name="is_working[2]" value="" id="is_working_wednesday">
                             <label for="flexCheckChecked">
                             Day-off / No work
                             </label>
@@ -187,7 +187,7 @@
                             @slot('attributes', [
                                 'class' => 'form-control',
                                 'type' => 'text',
-                                'name' => 'thursday',
+                                'name' => 'day[3]',
                                 'id' => 'thursday',
                                 'value' => 'thursday',
                                 'placeholder' => 'Position',
@@ -198,18 +198,18 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">From</label>
-                            <input class="form-control" type="time" value="" id="thursday_from">
+                            <input class="form-control" type="time" value="" id="thursday_from" name="from_time[3]">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">To</label>
-                            <input class="form-control" type="time" value="" id="thursday_to">
+                            <input class="form-control" type="time" value="" id="thursday_to" name="to_time[3]">
                         </div>
                     </div>
                     <div class="col-md-3 mt-2-custom">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="is_working" value="" id="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" name="is_working[3]" value="" id="is_working_thursday">
                             <label for="flexCheckChecked">
                             Day-off / No work
                             </label>
@@ -223,7 +223,7 @@
                             @slot('attributes', [
                                 'class' => 'form-control',
                                 'type' => 'text',
-                                'name' => 'friday',
+                                'name' => 'day[4]',
                                 'id' => 'friday',
                                 'value' => 'friday',
                                 'placeholder' => 'Position',
@@ -234,18 +234,18 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">From</label>
-                            <input class="form-control" type="time" value="" id="friday_from">
+                            <input class="form-control" type="time" value="" id="friday_from" name="from_time[4]">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">To</label>
-                            <input class="form-control" type="time" value="" id="friday_to">
+                            <input class="form-control" type="time" value="" id="friday_to" name="to_time[4]">
                         </div>
                     </div>
                     <div class="col-md-3 mt-2-custom">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="is_working" value="" id="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" name="is_working[4]" value="" id="is_working_friday">
                             <label for="flexCheckChecked">
                             Day-off / No work
                             </label>
@@ -259,7 +259,7 @@
                             @slot('attributes', [
                                 'class' => 'form-control',
                                 'type' => 'text',
-                                'name' => 'saturday',
+                                'name' => 'day[5]',
                                 'id' => 'saturday',
                                 'value' => 'saturday',
                                 'placeholder' => 'Position',
@@ -270,18 +270,18 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">From</label>
-                            <input class="form-control" type="time" value="" id="saturday_from">
+                            <input class="form-control" type="time" value="" id="saturday_from" name="from_time[5]">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">To</label>
-                            <input class="form-control" type="time" value="" id="saturday_to">
+                            <input class="form-control" type="time" value="" id="saturday_to" name="to_time[5]">
                         </div>
                     </div>
                     <div class="col-md-3 mt-2-custom">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="is_working" value="" id="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" name="is_working[5]" value="" id="is_working_saturday">
                             <label for="flexCheckChecked">
                             Day-off / No work
                             </label>
@@ -295,7 +295,7 @@
                             @slot('attributes', [
                                 'class' => 'form-control',
                                 'type' => 'text',
-                                'name' => 'sunday',
+                                'name' => 'day[6]',
                                 'id' => 'sunday',
                                 'value' => 'sunday',
                                 'placeholder' => 'Position',
@@ -306,18 +306,18 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">From</label>
-                            <input class="form-control" type="time" value="" id="sunday_from">
+                            <input class="form-control" type="time" value="" id="sunday_from" name="from_time[6]">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="example-time-input" class="form-control-label">To</label>
-                            <input class="form-control" type="time" value="" id="sunday_to">
+                            <input class="form-control" type="time" value="" id="sunday_to" name="to_time[6]">
                         </div>
                     </div>
                     <div class="col-md-3 mt-2-custom">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="is_working" value="" id="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" name="is_working[6]" value="" id="is_working_sunday">
                             <label for="flexCheckChecked">
                             Day-off / No work
                             </label>
