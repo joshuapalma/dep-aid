@@ -12,7 +12,7 @@ class DoctorNurseController extends Controller
 {
     public $doctorNurse;
 
-    public function __construct(StoreDoctorNurseRequest $doctorNurse)
+    public function __construct(DoctorNurseRepository $doctorNurse)
     {
         $this->doctorNurse = $doctorNurse;
     }
@@ -23,7 +23,8 @@ class DoctorNurseController extends Controller
      */
     public function index()
     {
-        return view('pages.doctor-nurse');
+        $result = $this->doctorNurse->getAllDoctorNurse();
+        return view('pages.doctor-nurse', $result);
     }
 
     /**
@@ -44,7 +45,8 @@ class DoctorNurseController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $this->doctorNurse->storeDoctorNurse($request);
+        return redirect()->route('doctor-nurse.index')->with('success', 'User added successfully');
     }
 
     /**

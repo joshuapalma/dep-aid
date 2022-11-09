@@ -171,10 +171,17 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <div id="columnchart_material" style="width: 1500px; height: 550px;"></div>
+                        <div id="columnchart_material" style="width: 730px; height: 500px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="piechart" style="width: 770px; height: 500px;"></div>
                     </div>
                 </div>
             </div>
@@ -185,27 +192,44 @@
 @push('js')
     <script type="text/javascript">
         google.charts.load('current', {'packages':['bar']});
-        google.charts.setOnLoadCallback(drawChart);
+        google.charts.load("current", {packages:["corechart"]});
 
-        function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Year', 'Sales', 'Expenses', 'Profit'],
-            ['2014', 1000, 400, 200],
-            ['2015', 1170, 460, 250],
-            ['2016', 660, 1120, 300],
-            ['2017', 1030, 540, 350]
-        ]);
+        google.charts.setOnLoadCallback(drawChartBar);
+        google.charts.setOnLoadCallback(drawChartPie);
 
-        var options = {
-            chart: {
-            title: 'Patient with Illness Forecast',
-            subtitle: 'Low, Medium and Severe Cases: 2022',
+        function drawChartBar() {
+            var dataBar = google.visualization.arrayToDataTable([
+                ['Year', 'Illness 1', 'Illness 2', 'Illness 3', 'Illness 4', 'Illness 5'],
+                ['2022', 1000, 400, 200, 300, 500]
+            ]);
+
+            var optionsBar = {
+                chart: {
+                title: 'Patient with Illness Forecast',
+                subtitle: 'Low, Medium and Severe Cases: 2022',
             }
         };
 
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+            var chartBar = new google.charts.Bar(document.getElementById('columnchart_material'));
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
+            chartBar.draw(dataBar, google.charts.Bar.convertOptions(optionsBar));
         }
+
+        function drawChartPie() {
+            var dataPie = google.visualization.arrayToDataTable([
+                ['Medicines', 'Quantity'],
+                ['Brand 1',     20],
+                ['Brand 2',      19],
+                ['Brand 3',  15]
+            ]);
+
+            var optionsPie = {
+                title: 'Top 3 Most Used Medicines',
+                is3D: true,
+            };
+
+            var chartPie = new google.visualization.PieChart(document.getElementById('piechart'));
+            chartPie.draw(dataPie, optionsPie);
+      }
     </script>
 @endpush

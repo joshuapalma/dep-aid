@@ -35,62 +35,79 @@
                             <table class="table align-items-center mb-0">
                               <thead>
                                 <tr>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">ID</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">Name</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Employee ID</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">First Name</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">Middle Name</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">Last Name</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Position</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Availability</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Available From</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Available To</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Action</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                {{-- @forelse ($leave as $index => $row)
-                                    <tr class="text-center">
-                                        <td>
-                                            <p class="text-xs font-weight-bold table-text mb-0">{{ $index + 1 }}</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($row->name) }}</p>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->designation) }}</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->date_of_leave)) }}</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ getNatureOfLeave()[$row->nature_of_leave] }} {{ $row->specify_others ? '/ '.($row->specify_others) : "" }}</span>
-                                        </td>
-                                        <td class="align-middle">
-                                            <input type="hidden" id="leave-details-{{$row->id}}" data-detail="{{ $row }}">
-                                            <button 
-                                                type="button" 
-                                                class="btn bg-gradient-warning z-index-2" 
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#editLeaveModal" 
-                                                onclick = "editLeave('{{$row->id}}')">
-                                                Edit
-                                            </button>
-                                            <button 
-                                                type="button" 
-                                                class="btn bg-gradient-danger z-index-2 drop" 
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#deleteModal"
-                                                data-url="{{ route('leave.destroy', $row->id) }}"
-                                                onclick = "deleteLeave(this)">
-                                                Delete
-                                            </button>
-                                        </td>
+                                @forelse ($doctorNurse as $index => $row)
+                                    <tr>
+                                        @foreach ($row as $item)
+                                            <tr class="text-center">
+                                                <td>
+                                                    <p class="text-xs font-weight-bold table-text mb-0">{{ $item->employee_id }}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($item->first_name) }}</p>
+                                                </td>
+                                                <td class="align-middle text-center text-sm">
+                                                    <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($item->middle_name) }}</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($item->last_name) }}</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($item->position) }}</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($item->availability_days) }}</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold table-text">{{ isset($item->available_from) ? date('H:i:s', strtotime($item->available_from)) : 'Not Available' }}</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold table-text">{{  isset($item->available_to) ? date('H:i:s', strtotime($item->available_to)) : 'Not Available' }}</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <input type="hidden" id="leave-details-{{$item->id}}" data-detail="{{ $item }}">
+                                                    <button 
+                                                        type="button" 
+                                                        class="btn bg-gradient-warning z-index-2" 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#editLeaveModal" 
+                                                        onclick = "editLeave('{{$item->id}}')">
+                                                        Edit
+                                                    </button>
+                                                    <button 
+                                                        type="button" 
+                                                        class="btn bg-gradient-danger z-index-2 drop" 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#deleteModal"
+                                                        {{-- data-url="{{ route('leave.destroy', $item->id) }}" --}}
+                                                        onclick = "deleteLeave(this)">
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tr>
-                                @empty --}}
+                                @empty
                                     <tr>
                                         <td colspan="6" class="font-weight-bold text-center table-text">No Data Available</td>
                                     </tr>
-                                {{-- @endforelse --}}
+                                @endforelse
                               </tbody>
                             </table>
                         </div>
                         {{-- <div class="table-pagination p-5">
-                            <div class="row">
+                            <div class="item">
                                 <div class="row col-sm-12 col-md-12 col-lg-12 font-weight-600"">
                                     {{$leave->appends(['search' => isset($requestData->search) ? $requestData->search : null])->links('components.pagination')}}
                                 </div>
@@ -108,66 +125,52 @@
 @push('js')
     <script>
         $('#is_working_monday').on('change', function() {
-            let checker = $(this).prop('checked');
-
-            if (checker == true){
-                $(this).val(1);
+            if (this.checked == true){
+                $(this).val("1");
             } else {
-                $(this).val(0);
+                $(this).val("0");
             }
         })
         $('#is_working_tuesday').on('change', function() {
-            let checker = $(this).prop('checked');
-
-            if (checker == true){
-                $(this).val(1);
+            if (this.checked == true){
+                $(this).val("1");
             } else {
-                $(this).val(0);
+                $(this).val("0");
             }
         })
         $('#is_working_wednesday').on('change', function() {
-            let checker = $(this).prop('checked');
-
-            if (checker == true){
-                $(this).val(1);
+            if (this.checked == true){
+                $(this).val("1");
             } else {
-                $(this).val(0);
+                $(this).val("0");
             }
         })
         $('#is_working_thursday').on('change', function() {
-            let checker = $(this).prop('checked');
-
-            if (checker == true){
-                $(this).val(1);
+            if (this.checked == true){
+                $(this).val("1");
             } else {
-                $(this).val(0);
+                $(this).val("0");
             }
         })
         $('#is_working_friday').on('change', function() {
-            let checker = $(this).prop('checked');
-
-            if (checker == true){
-                $(this).val(1);
+            if (this.checked == true){
+                $(this).val("1");
             } else {
-                $(this).val(0);
+                $(this).val("0");
             }
         })
         $('#is_working_saturday').on('change', function() {
-            let checker = $(this).prop('checked');
-
-            if (checker == true){
-                $(this).val(1);
+            if (this.checked == true){
+                $(this).val("1");
             } else {
-                $(this).val(0);
+                $(this).val("0");
             }
         })
         $('#is_working_sunday').on('change', function() {
-            let checker = $(this).prop('checked');
-
-            if (checker == true){
-                $(this).val(1);
+            if (this.checked == true){
+                $(this).val("1");
             } else {
-                $(this).val(0);
+                $(this).val("0");
             }
         })
     </script>

@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('inventory', function (Blueprint $table) {
+        Schema::create('day', function (Blueprint $table) {
             $table->id();
-            $table->string('medicine_name')->nullable();
-            $table->string('brand')->nullable();
-            $table->dateTime('manufacturer_date')->nullable();
-            $table->dateTime('expiration_date')->nullable();
-            $table->string('type')->nullable();
-            $table->string('quantity')->nullable();
+            $table->string('day');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventory');
+        Schema::dropIfExists('day');
     }
 };
