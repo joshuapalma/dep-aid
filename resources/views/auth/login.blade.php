@@ -49,8 +49,8 @@
                                 style="background-image: url('img/medical.svg');
               background-size: cover;">
                                 <span class="mask opacity-6"></span>
-                                <h4 class="mt-5 text-white font-weight-bolder position-relative">DEP-AID</h4>
-                                <p class="text-white position-relative">MALAYBALAY CITY DIVISION</p>
+                                {{-- <h4 class="mt-5 text-white font-weight-bolder position-relative">DEP-AID</h4>
+                                <p class="text-white position-relative">MALAYBALAY CITY DIVISION</p> --}}
                             </div>
                         </div>
                     </div>

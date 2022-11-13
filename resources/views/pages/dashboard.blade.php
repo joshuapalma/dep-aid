@@ -170,18 +170,20 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-6">
+        <div class="row mb-3">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <div id="columnchart_material" style="width: 730px; height: 500px;"></div>
+                        <div id="columnchart_material" class="mx-auto" style="width: 730px; height: 500px;"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <div id="piechart" style="width: 770px; height: 500px;"></div>
+                        <div id="piechart" class="mx-auto" style="width: 770px; height: 500px;"></div>
                     </div>
                 </div>
             </div>
