@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\PatientFormRepository;
 
 class MainController extends Controller
 {
+
+    public $patientForm;
+
+    public function __construct(PatientFormRepository $patientForm)
+    {
+        $this->patientForm = $patientForm;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,6 +42,7 @@ class MainController extends Controller
      */
     public function store(Request $request)
     {
+        $this->patientForm->storePatientForm($request);
         return view('pages.patient-form-success');
     }
 
