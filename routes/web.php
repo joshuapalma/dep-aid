@@ -70,28 +70,33 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/cardiac-drugs/store', [CardiacDrugsController::class, 'store'])->name('cardiac-drugs.store');
 	Route::put('/cardiac-drugs/update/{id}', [CardiacDrugsController::class, 'update'])->name('cardiac-drugs.update');
 	Route::delete('/cardiac-drugs/destroy/{id}', [CardiacDrugsController::class, 'destroy'])->name('cardiac-drugs.destroy');
+	Route::post('/cardiac-drugs/generate-pdf', [CardiacDrugsController::class, 'generatePdf'])->name('cardiac-drugs.generatePdf');
 	
 	//Antibiotics
 	Route::get('/antibiotics', [AntibioticsController::class, 'index'])->name('antibiotics.index');
 	Route::post('/antibiotics/store', [AntibioticsController::class, 'store'])->name('antibiotics.store');
 	Route::put('/antibiotics/update/{id}', [AntibioticsController::class, 'update'])->name('antibiotics.update');
 	Route::delete('/antibiotics/destroy/{id}', [AntibioticsController::class, 'destroy'])->name('antibiotics.destroy');
+	Route::post('/antibiotics/generate-pdf', [AntibioticsController::class, 'generatePdf'])->name('antibiotics.generatePdf');
 	
 	//Anti-Inflammatory
 	Route::get('/anti-inflammatory', [AntiInflammatoryController::class, 'index'])->name('anti-inflammatory.index');
 	Route::post('/anti-inflammatory/store', [AntiInflammatoryController::class, 'store'])->name('anti-inflammatory.store');
 	Route::put('/anti-inflammatory/update/{id}', [AntiInflammatoryController::class, 'update'])->name('anti-inflammatory.update');
 	Route::delete('/anti-inflammatory/destroy/{id}', [AntiInflammatoryController::class, 'destroy'])->name('anti-inflammatory.destroy');
+	Route::post('/anti-inflammatory/generate-pdf', [AntiInflammatoryController::class, 'generatePdf'])->name('anti-inflammatory.generatePdf');
 	
 	//Ear-Meds
 	Route::get('/ear-meds', [EarMedController::class, 'index'])->name('ear-meds.index');
 	Route::post('/ear-meds/store', [EarMedController::class, 'store'])->name('ear-meds.store');
 	Route::put('/ear-meds/update/{id}', [EarMedController::class, 'update'])->name('ear-meds.update');
 	Route::delete('/ear-meds/destroy/{id}', [EarMedController::class, 'destroy'])->name('ear-meds.destroy');
+	Route::post('/ear-meds/generate-pdf', [EarMedController::class, 'generatePdf'])->name('ear-meds.generatePdf');
 	
 	//Topicals
 	Route::get('/topicals', [TopicalController::class, 'index'])->name('topicals.index');
 	Route::post('/topicals/store', [TopicalController::class, 'store'])->name('topicals.store');
 	Route::put('/topicals/update/{id}', [TopicalController::class, 'update'])->name('topicals.update');
 	Route::delete('/topicals/destroy/{id}', [TopicalController::class, 'destroy'])->name('topicals.destroy');
+	Route::post('/topicals/generate-pdf', [TopicalController::class, 'generatePdf'])->name('topicals.generatePdf');
 });

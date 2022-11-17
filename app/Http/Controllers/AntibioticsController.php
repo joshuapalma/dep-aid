@@ -95,4 +95,10 @@ class AntibioticsController extends Controller
         $this->antibiotics->deleteAntibiotic($id);
         return redirect()->route('antibiotics.index')->with('success', 'Antibiotics deleted successfully');
     }
+
+    public function generatePdf()
+    {
+        $result = $this->antibiotics->generatePdf();
+        return $result;
+    }
 }

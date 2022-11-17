@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Inventory;
 use Illuminate\Pipeline\Pipeline;
+use PDF;
 
 class CardiacDrugsRepository
 {
@@ -60,5 +61,19 @@ class CardiacDrugsRepository
     public function deleteCardiacDrugs($cardiacDrugsId)
     {
         return Inventory::find($cardiacDrugsId->id)->delete();
+    }
+
+    public function generatePdf()
+    {
+        $query = Inventory::where('type', 'Cardiac Drugs')->get();
+
+        $data = [
+            'title' => 'DEP-AID Inventory - Anti-Inflammatory Report',
+            'users' => $query
+        ];
+
+        $pdf = PDF::loadView('pdf.inventory', $data);
+
+        return $pdf->download('DEP-AID Inventory - Anti-Inflammatory Report.pdf');
     }
 }

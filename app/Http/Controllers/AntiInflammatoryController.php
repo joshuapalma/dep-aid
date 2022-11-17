@@ -95,4 +95,10 @@ class AntiInflammatoryController extends Controller
         $this->antiInflammatory->deleteAntiInflammatory($id);
         return redirect()->route('anti-inflammatory.index')->with('success', 'Anti-inflammatory deleted successfully');
     }
+
+    public function generatePdf()
+    {
+        $result = $this->antiInflammatory->generatePdf();
+        return $result;
+    }
 }

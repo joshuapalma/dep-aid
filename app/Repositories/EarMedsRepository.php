@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Inventory;
 use Illuminate\Pipeline\Pipeline;
+use PDF;
 
 class EarMedsRepository
 {
@@ -60,5 +61,19 @@ class EarMedsRepository
     public function deleteEarMeds($earMedsId)
     {
         return Inventory::find($earMedsId->id)->delete();
+    }
+
+    public function generatePdf()
+    {
+        $query = Inventory::where('type', 'Ear Meds')->get();
+
+        $data = [
+            'title' => 'DEP-AID Inventory - Ear Meds Report',
+            'users' => $query
+        ];
+
+        $pdf = PDF::loadView('pdf.inventory', $data);
+
+        return $pdf->download('DEP-AID Inventory - Ear Meds Report.pdf');
     }
 }

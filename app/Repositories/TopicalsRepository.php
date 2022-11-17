@@ -60,4 +60,18 @@ class TopicalsRepository
     {   
         return Inventory::find($topicalsId->id)->delete();
     }
+
+    public function generatePdf()
+    {
+        $query = Inventory::where('type', 'Topicals')->get();
+
+        $data = [
+            'title' => 'DEP-AID Inventory - Topicals Report',
+            'users' => $query
+        ];
+
+        $pdf = PDF::loadView('pdf.inventory', $data);
+
+        return $pdf->download('DEP-AID Inventory - Topicals Report.pdf');
+    }
 }

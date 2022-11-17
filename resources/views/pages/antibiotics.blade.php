@@ -8,7 +8,10 @@
                 <div class="card z-index-2 h-100" style="background-color: transparent; border: none; box-shadow: none;">
                     <div class="col-lg-12 col-md-12 d-flex justify-content-end">
                         <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#filterAntibiotics">Filter</button>
-                        <button class="btn bg-gradient-info z-index-2 me-2" data-bs-toggle="modal" data-bs-target="#exportLeaveModal">Generate Report</button>
+                        <form action="{{ route('antibiotics.generatePdf') }}" method="POST" id="generate-report">
+                            @csrf
+                            <button type="submit" class="btn bg-gradient-info z-index-2 me-2">Generate Report</button>
+                        </form>
                         <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addAntibiotics">Add Antibiotics</button>
                     </div>
                 </div>

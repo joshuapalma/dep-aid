@@ -95,4 +95,10 @@ class TopicalController extends Controller
         $this->topicals->deleteTopicals($id);
         return redirect()->route('topicals.index')->with('success', 'Topicals deleted successfully');
     }
+
+    public function generatePdf()
+    {
+        $result = $this->topicals->generatePdf();
+        return $result;
+    }
 }

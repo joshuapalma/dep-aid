@@ -95,4 +95,10 @@ class EarMedController extends Controller
         $this->earMeds->deleteEarMeds($id);
         return redirect()->route('ear-meds.index')->with('success', 'Ear Meds deleted successfully');
     }
+
+    public function generatePdf()
+    {
+        $result = $this->earMeds->generatePdf();
+        return $result;
+    }
 }
