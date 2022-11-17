@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Patient;
 use Illuminate\Pipeline\Pipeline;
+use PDF;
 
 class PatientsRepository
 {
@@ -57,5 +58,19 @@ class PatientsRepository
     public function deletePatient($employeeProfileId)
     {
         return Patient::find($employeeProfileId->id)->delete();
+    }
+
+    public function generatePdf()
+    {
+        $query = Patient::get();
+
+        $data = [
+            'title' => 'DEP-AID Patient List Report',
+            'users' => $query
+        ];
+
+        $pdf = PDF::loadView('pdf.patient', $data);
+
+        return $pdf->download('DEP-AID Patient List Report.pdf');
     }
 }

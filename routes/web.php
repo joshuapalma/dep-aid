@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/patients/store', [PatientsController::class, 'store'])->name('patients.store');
 	Route::put('/patients/update/{id}', [PatientsController::class, 'update'])->name('patients.update');
 	Route::delete('/patients/destroy/{id}', [PatientsController::class, 'destroy'])->name('patients.destroy');
+	Route::post('/patients/generate-pdf', [PatientsController::class, 'generatePdf'])->name('patients.generatePdf');
 	
 	//Doctor-Nurse
 	Route::get('/doctor-nurse', [DoctorNurseController::class, 'index'])->name('doctor-nurse.index');

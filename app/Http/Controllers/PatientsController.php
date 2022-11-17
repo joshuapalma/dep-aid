@@ -95,4 +95,10 @@ class PatientsController extends Controller
         $this->patient->deletePatient($id);
         return redirect()->route('patients.index')->with('error', 'Patient Deleted Successfully');
     }
+
+    public function generatePdf()
+    {
+        $result = $this->patient->generatePdf();
+        return $result;
+    }
 }
