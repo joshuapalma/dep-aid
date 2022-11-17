@@ -64,6 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/doctor-nurse/store', [DoctorNurseController::class, 'store'])->name('doctor-nurse.store');
 	Route::put('/doctor-nurse/update/{id}', [DoctorNurseController::class, 'update'])->name('doctor-nurse.update');
 	Route::delete('/doctor-nurse/destroy/{id}', [DoctorNurseController::class, 'destroy'])->name('doctor-nurse.destroy');
+	Route::post('/doctor-nurse/generate-pdf', [DoctorNurseController::class, 'generatePdf'])->name('doctor-nurse.generatePdf');
 
 	//Inventory
 	//Cardiac Drugs

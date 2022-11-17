@@ -6,6 +6,7 @@ use App\Models\DayTable;
 use App\Models\DoctorNurse;
 use Carbon\Carbon;
 use Illuminate\Pipeline\Pipeline;
+use PDF;
 
 class DoctorNurseRepository
 {
@@ -57,5 +58,19 @@ class DoctorNurseRepository
     public function deleteDoctorNurse($cardiacDrugsId)
     {
 
+    }
+
+    public function generatePdf()
+    {
+        $query = DoctorNurse::get();
+
+        $data = [
+            'title' => 'DEP-AID Doctor - Nurse List Report',
+            'users' => $query
+        ];
+
+        $pdf = PDF::loadView('pdf.doctor-nurse', $data);
+
+        return $pdf->download('DEP-AID Doctor - Nurse List Report.pdf');
     }
 }
