@@ -21,9 +21,9 @@ class DoctorNurseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $result = $this->doctorNurse->getAllDoctorNurse();
+        $result = $this->doctorNurse->getAllDoctorNurse($request);
         return view('pages.doctor-nurse', $result);
     }
 
