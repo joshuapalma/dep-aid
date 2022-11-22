@@ -7,12 +7,26 @@ use App\Models\DoctorNurse;
 use Carbon\Carbon;
 use Illuminate\Pipeline\Pipeline;
 use PDF;
+use Illuminate\Support\Facades\DB;
 
 class DoctorNurseRepository
 {
-    public function getAllDoctorNurse()
+    public function getAllDoctorNurse($request)
     {
-       $doctorNurse = DoctorNurse::get()->groupBy('employee_id');
+        $requestData = [
+            'search' => isset($request->search) ? $request->search : null
+        ];
+
+        $query = DoctorNurse::query();
+
+        $result = app(Pipeline::class)
+            ->send($query)
+            ->through([
+                \App\Pipelines\Search\SearchDoctorNurseTable::class,
+                \App\Pipelines\Filter\DateFilter::class
+        ])->thenReturn();
+
+        $doctorNurse = DoctorNurse::select(DB::raw('count(*) as user_count, employee_id'))->groupBy('employee_id')->get();
 
        return compact('doctorNurse');
     }
