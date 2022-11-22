@@ -123,6 +123,8 @@
     </div>
     @include('modals.doctor-nurse.create')
     @include('modals.doctor-nurse.edit')
+    @include('modals.doctor-nurse.show')
+    @include('modals.delete')
 @endsection
 
 @push('js')
