@@ -11,12 +11,11 @@ class SearchDoctorNurseTable
     {
         if (request()->has('search')) {
             $query->where(function($query){
-                $query->orWhere('first_name', 'LIKE', "%".request('search')."%")
+                $query->orWhere('employee_id', 'LIKE', "%".request('search')."%")
+                    ->orWhere('first_name', 'LIKE', "%".request('search')."%")
                     ->orWhere('middle_name', 'LIKE', "%".request('search')."%")
                     ->orWhere('last_name', 'LIKE', "%".request('search')."%")
-                    ->orWhere('position', 'LIKE', "%".request('search')."%")
-                    ->orWhere('specialization', 'LIKE', "%".request('search')."%")
-                    ->orWhere('availability_days', 'LIKE', "%".request('search')."%");
+                    ->orWhere('position', 'LIKE', "%".request('search')."%");
             });
         }
         $next($query);

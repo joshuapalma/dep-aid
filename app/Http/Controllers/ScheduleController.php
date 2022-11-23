@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\SchedulesRepository;
 
 class ScheduleController extends Controller
 {
+    public $schedules;
+
+    public function __construct(SchedulesRepository $schedules)
+    {
+        $this->schedules = $schedules;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,8 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        return view('pages.schedule');
+        $result = $this->schedules->getAllSchedules();
+        return view('pages.schedule', $result);
     }
 
     /**

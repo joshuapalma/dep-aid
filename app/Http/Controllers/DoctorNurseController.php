@@ -57,7 +57,8 @@ class DoctorNurseController extends Controller
      */
     public function show($id)
     {
-        //
+        $result = $this->doctorNurse->showDoctorNurse($id);
+        return $result;
     }
 
     /**

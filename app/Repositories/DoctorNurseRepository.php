@@ -26,9 +26,15 @@ class DoctorNurseRepository
                 \App\Pipelines\Filter\DateFilter::class
         ])->thenReturn();
 
-        $doctorNurse = DoctorNurse::select(DB::raw('count(*) as user_count, employee_id'))->groupBy('employee_id')->get();
+        $data = $result ? $result : $query;
+        $doctorNurse = $data->groupBy('employee_id')->get();
 
-       return compact('doctorNurse');
+       return compact('doctorNurse', 'requestData');
+    }
+
+    public function showDoctorNurse($doctorNurse)
+    {
+        $data = DoctorNurse::where('id', $doctorNurse->id)->select('availability_days, available_from, available_to, is_working')->get();
     }
 
     public function storeDoctorNurse($request)
