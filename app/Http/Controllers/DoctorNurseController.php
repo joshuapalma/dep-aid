@@ -55,9 +55,9 @@ class DoctorNurseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        $result = $this->doctorNurse->showDoctorNurse($id);
+        $result = $this->doctorNurse->showDoctorNurse($request);
         return $result;
     }
 
@@ -98,6 +98,12 @@ class DoctorNurseController extends Controller
     public function generatePdf()
     {
         $result = $this->doctorNurse->generatePdf();
+        return $result;
+    }
+
+    public function getSchedules(Request $request)
+    {
+        $result = $this->doctorNurse->getSchedules($request);
         return $result;
     }
 }

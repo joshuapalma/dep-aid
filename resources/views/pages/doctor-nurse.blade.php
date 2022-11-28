@@ -79,7 +79,7 @@
                                                     class="btn bg-gradient-warning z-index-2" 
                                                     data-bs-toggle="modal" 
                                                     data-bs-target="#editLeaveModal" 
-                                                    onclick = "editLeave('{{$row->id}}')">
+                                                    onclick = "editDoctorNurse('{{$row->id}}')">
                                                     Edit
                                                 </button>
                                                 <button 
@@ -88,7 +88,7 @@
                                                     data-bs-toggle="modal" 
                                                     data-bs-target="#deleteModal"
                                                     {{-- data-url="{{ route('leave.destroy', $item->id) }}" --}}
-                                                    onclick = "deleteLeave(this)">
+                                                    onclick = "deleteDoctorNurse(this)">
                                                     Delete
                                                 </button>
                                             </td>
@@ -172,12 +172,40 @@
             }
         })
 
-        function showSchedules(id) {
-            const detail = $(`#doctor-nurse-details-${id}`).data().detail;     
-            // console.log(detail);
+        function showSchedules(id){
+            const details = $(`#doctor-nurse-details-${id}`).data().detail;
+
             $.ajax({
-                url: "{{ route('doctor-nurse.show', `${id}`) }}"
+                url: "{{ route('doctor-nurse.show') }}",
+                method: "GET",
+                data: {
+                    employee_id: details.employee_id
+                }, 
+                success: function(response){
+                    console.log(response)
+                },
+                error: function(response){
+
+                }
             })
+        }
+
+        function editDoctorNurse(id) {
+            const detail = $(`#doctor-nurse-details-${id}`).data().detail;     
+            newManufacturerDate = formatDate(detail.manufacturer_date);
+            newExpirationDate = formatDate(detail.expiration_date);
+
+            $('#edit_medicine_name').val(detail.medicine_name);            
+            $('#edit_brand').val(detail.brand);            
+            $('#edit_manufacturer_date').val(newManufacturerDate);
+            $('#edit_expiration_date').val(newExpirationDate);
+            $('#edit-anti-inflammatory-form').attr('action', `/anti-inflammatory/update/${detail.id}`)
+        }
+
+        function deleteDoctorNurse(btn) {
+            var data = $(btn).data();
+            var url = data.url;
+            $('#delete-form').attr('action', url);
         }
     </script>
 @endpush

@@ -34,7 +34,8 @@ class DoctorNurseRepository
 
     public function showDoctorNurse($doctorNurse)
     {
-        $data = DoctorNurse::where('id', $doctorNurse->id)->select('availability_days, available_from, available_to, is_working')->get();
+        $data = DoctorNurse::where('employee_id', $doctorNurse->employee_id)->get();
+        return compact('data');
     }
 
     public function storeDoctorNurse($request)
@@ -92,5 +93,12 @@ class DoctorNurseRepository
         $pdf = PDF::loadView('pdf.doctor-nurse', $data);
 
         return $pdf->download('DEP-AID Doctor - Nurse List Report.pdf');
+    }
+
+    public function getSchedules($request)
+    {
+        $result = DoctorNurse::where('availability_days', $request->day)->where('is_working', 0)->get();
+
+        return $result;
     }
 }

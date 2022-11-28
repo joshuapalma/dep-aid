@@ -35,6 +35,9 @@ use App\Http\Controllers\TopicalController;
 Route::get('/patient-form', [MainController::class, 'index'])->name('patient-form');
 Route::post('/success', [MainController::class, 'store'])->name('patient-form.store');
 
+//Get Schedule of Doctor for Patient Form
+Route::get('/get-schedules', [DoctorNurseController::class, 'getSchedules'])->name('getSchedules');
+
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
@@ -61,7 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
 	
 	//Doctor-Nurse
 	Route::get('/doctor-nurse', [DoctorNurseController::class, 'index'])->name('doctor-nurse.index');
-	Route::get('/doctor-nurse/show/{id}', [DoctorNurseController::class, 'show'])->name('doctor-nurse.show');
+	Route::get('/doctor-nurse/show', [DoctorNurseController::class, 'show'])->name('doctor-nurse.show');
 	Route::post('/doctor-nurse/store', [DoctorNurseController::class, 'store'])->name('doctor-nurse.store');
 	Route::put('/doctor-nurse/update/{id}', [DoctorNurseController::class, 'update'])->name('doctor-nurse.update');
 	Route::delete('/doctor-nurse/destroy/{id}', [DoctorNurseController::class, 'destroy'])->name('doctor-nurse.destroy');
