@@ -338,10 +338,10 @@
                               <div class="card-header pb-0 text-center">
                                 <div class="row mt-5">
                                   <div class="col-lg-6 col-md-6 col-6 text-center">
-                                      <img src="{{ asset('img/logos/dep-ed.png') }}" height="100">
+                                      <img src="{{ asset('/public/img/logos/dep-ed.png') }}" height="100">
                                   </div>
                                   <div class="col-lg-6 col-md-6 col-6 text-center">
-                                      <img src="{{ asset('img/logos/DEP-AID.png') }}" height="100">
+                                      <img src="{{ asset('/public/img/logos/DEP-AID.png') }}" height="100">
                                   </div>
                                 </div>
                               </div>
@@ -350,101 +350,109 @@
                                   <form role="form" method="POST" action="{{ route('patient-form.store') }}" id="add-patient-form" enctype="multipart/form-data">
                                     <div class="tab">
                                       <div class="row">
-                                        @component('components.inputs.input')
-                                          @slot('label', 'Name')
-                                          @slot('attributes', [
-                                              'class' => 'form-control text-black',
-                                              'type' => 'text',
-                                              'name' => 'name',
-                                              'id' => 'name',
-                                              'placeholder' => 'Name',
-                                          ])          
-                                        @endcomponent
+                                        <div class="col-md-12 col-lg-6">
+                                          @component('components.inputs.input')
+                                            @slot('label', 'Name')
+                                            @slot('attributes', [
+                                                'class' => 'form-control text-black',
+                                                'type' => 'text',
+                                                'name' => 'name',
+                                                'id' => 'name',
+                                                'placeholder' => 'Name',
+                                            ])          
+                                          @endcomponent
+                                        </div>
+                                        <div class="col-md-12 col-lg-6">
+                                          @component('components.inputs.input')
+                                            @slot('label', 'Age')
+                                            @slot('attributes', [
+                                                'class' => 'form-control text-black',
+                                                'type' => 'number',
+                                                'name' => 'age',
+                                                'id' => 'age',
+                                                'placeholder' => 'Age'
+                                            ])          
+                                          @endcomponent
+                                        </div>
                                       </div>
                                       <div class="row">
-                                        @component('components.inputs.input')
-                                          @slot('label', 'Age')
-                                          @slot('attributes', [
-                                              'class' => 'form-control text-black',
-                                              'type' => 'number',
-                                              'name' => 'age',
-                                              'id' => 'age',
-                                              'placeholder' => 'Age'
-                                          ])          
-                                        @endcomponent
+                                        <div class="col-md-12 col-lg-6">
+                                          @component('components.inputs.select')
+                                            @slot('label', 'Gender')
+                                            @slot('options', [0 => 'Male', 1 => 'Female'])
+                                            @slot('attributes', [
+                                                'class' => 'form-control',
+                                                'name' => 'gender',
+                                                'id' => 'gender',
+                                                'value' => '',
+                                                'placeholder' => 'Select'
+                                            ])          
+                                          @endcomponent
+                                        </div>
+                                        <div class="col-md-12 col-lg-6">
+                                          @component('components.inputs.input')
+                                            @slot('label', 'Birthdate')
+                                            @slot('attributes', [
+                                                'class' => 'form-control text-black',
+                                                'type' => 'date',
+                                                'name' => 'birthdate',
+                                                'id' => 'birthdate',
+                                                'placeholder' => 'Birthdate'
+                                            ])          
+                                          @endcomponent
+                                        </div>
                                       </div>
                                       <div class="row">
-                                        @component('components.inputs.select')
-                                          @slot('label', 'Gender')
-                                          @slot('options', [0 => 'Male', 1 => 'Female'])
-                                          @slot('attributes', [
-                                              'class' => 'form-control',
-                                              'name' => 'gender',
-                                              'id' => 'gender',
-                                              'value' => '',
-                                              'placeholder' => 'Select'
-                                          ])          
-                                        @endcomponent
+                                        <div class="col-md-12 col-lg-6">
+                                          @component('components.inputs.input')
+                                            @slot('label', 'Height')
+                                            @slot('attributes', [
+                                                'class' => 'form-control text-black',
+                                                'type' => 'text',
+                                                'name' => 'height',
+                                                'id' => 'height',
+                                                'placeholder' => 'Height'
+                                            ])          
+                                          @endcomponent
+                                        </div>
+                                        <div class="col-md-12 col-lg-6">
+                                          @component('components.inputs.input')
+                                            @slot('label', 'Weight')
+                                            @slot('attributes', [
+                                                'class' => 'form-control text-black',
+                                                'type' => 'text',
+                                                'name' => 'weight',
+                                                'id' => 'weight',
+                                                'placeholder' => 'Weight'
+                                            ])          
+                                          @endcomponent
+                                        </div>
                                       </div>
                                       <div class="row">
-                                        @component('components.inputs.input')
-                                          @slot('label', 'Birthdate')
-                                          @slot('attributes', [
-                                              'class' => 'form-control text-black',
-                                              'type' => 'date',
-                                              'name' => 'birthdate',
-                                              'id' => 'birthdate',
-                                              'placeholder' => 'Birthdate'
-                                          ])          
-                                        @endcomponent
-                                      </div>
-                                      <div class="row">
-                                        @component('components.inputs.input')
-                                          @slot('label', 'Height')
-                                          @slot('attributes', [
-                                              'class' => 'form-control text-black',
-                                              'type' => 'text',
-                                              'name' => 'height',
-                                              'id' => 'height',
-                                              'placeholder' => 'Height'
-                                          ])          
-                                        @endcomponent
-                                      </div>
-                                      <div class="row">
-                                        @component('components.inputs.input')
-                                          @slot('label', 'Weight')
-                                          @slot('attributes', [
-                                              'class' => 'form-control text-black',
-                                              'type' => 'text',
-                                              'name' => 'weight',
-                                              'id' => 'weight',
-                                              'placeholder' => 'Weight'
-                                          ])          
-                                        @endcomponent
-                                      </div>
-                                      <div class="row">
-                                        @component('components.inputs.input')
-                                          @slot('label', 'Address')
-                                          @slot('attributes', [
-                                              'class' => 'form-control text-black',
-                                              'type' => 'text',
-                                              'name' => 'address',
-                                              'id' => 'address',
-                                              'placeholder' => 'Address'
-                                          ])          
-                                        @endcomponent
-                                      </div>
-                                      <div class="row">
-                                        @component('components.inputs.input')
-                                          @slot('label', 'Contact Number')
-                                          @slot('attributes', [
-                                              'class' => 'form-control text-black',
-                                              'type' => 'number',
-                                              'name' => 'contact-number',
-                                              'id' => 'contact-number',
-                                              'placeholder' => 'Contact Number'
-                                          ])          
-                                        @endcomponent
+                                        <div class="col-md-12 col-lg-6">
+                                          @component('components.inputs.input')
+                                            @slot('label', 'Address')
+                                            @slot('attributes', [
+                                                'class' => 'form-control text-black',
+                                                'type' => 'text',
+                                                'name' => 'address',
+                                                'id' => 'address',
+                                                'placeholder' => 'Address'
+                                            ])          
+                                          @endcomponent
+                                        </div>
+                                        <div class="col-md-12 col-lg-6">
+                                          @component('components.inputs.input')
+                                            @slot('label', 'Contact Number')
+                                            @slot('attributes', [
+                                                'class' => 'form-control text-black',
+                                                'type' => 'number',
+                                                'name' => 'contact-number',
+                                                'id' => 'contact-number',
+                                                'placeholder' => 'Contact Number'
+                                            ])          
+                                          @endcomponent
+                                        </div>
                                       </div>
                                     </div>
                                     
