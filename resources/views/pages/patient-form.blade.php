@@ -338,16 +338,17 @@
                               <div class="card-header pb-0 text-center">
                                 <div class="row mt-5">
                                   <div class="col-lg-6 col-md-6 col-6 text-center">
-                                      <img src="{{ asset('/public/img/logos/dep-ed.png') }}" height="100">
+                                      <img src="{{ asset('img/logos/dep-ed.png') }}" height="100">
                                   </div>
                                   <div class="col-lg-6 col-md-6 col-6 text-center">
-                                      <img src="{{ asset('/public/img/logos/DEP-AID.png') }}" height="100">
+                                      <img src="{{ asset('img/logos/DEP-AID.png') }}" height="100">
                                   </div>
                                 </div>
                               </div>
                               <div class="card-body">
                                   <h6 class="text-center text-black">Please provide the following informations</h6>
                                   <form role="form" method="POST" action="{{ route('patient-form.store') }}" id="add-patient-form" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="tab">
                                       <div class="row">
                                         <div class="col-md-12 col-lg-6">
@@ -645,7 +646,7 @@
                       <div
                           class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
                           <div class="position-relative h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
-                              style="background-image: url('/public/img/medical.svg');
+                              style="background-image: url('img/medical.svg');
             background-size: cover;">
                               <span class="mask opacity-6"></span>
                           </div>
