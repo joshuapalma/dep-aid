@@ -586,38 +586,39 @@
                                               <table class="table align-items-center mb-0">
                                                 <thead>
                                                   <tr>
-                                                    <th class="text-secondary opacity-7"></th>
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Availability</th>
+                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Available From</th>
+                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Available To</th>
                                                   </tr>
                                                 </thead>
                                                 <tbody>
-                                                  <tr>
+                                                  {{-- <tr>
+                                                    <td>
+                                                      <div>
+                                                        <div class="form-check">
+                                                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                                        </div>
+                                                      </div>
+                                                    </td>
                                                     <td>
                                                       <div class="d-flex px-2 py-1">
-                                                        <div>
-                                                          <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                                          </div>
-                                                        </div>
-                                                        <div>
-                                                          <img src="https://demos.creative-tim.com/soft-ui-design-system-pro/assets/img/team-2.jpg" class="avatar avatar-sm me-3">
-                                                        </div>
                                                         <div class="d-flex flex-column justify-content-center">
                                                           <h6 class="mb-0 text-xs">John Michael</h6>
-                                                          <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
                                                         </div>
                                                       </div>
                                                     </td>
                                                     <td>
                                                       <p class="text-xs font-weight-bold mb-0">Manager</p>
-                                                      <p class="text-xs text-secondary mb-0">Organization</p>
                                                     </td>
                                                     <td class="align-middle text-center text-sm">
-                                                      <span class="badge badge-sm badge-success">Online</span>
+                                                      <p class="text-xs font-weight-bold mb-0">Manager</p>
                                                     </td>
-                                                  </tr>
+                                                    <td class="align-middle text-center text-sm">
+                                                      <p class="text-xs font-weight-bold mb-0">Manager</p>
+                                                    </td>
+                                                  </tr> --}}
                                                 </tbody>
                                               </table>
                                             </div>
@@ -745,7 +746,47 @@
               day: selectDate
             },
             success: function(response){
-              console.log(response)
+              var tableBody = $("table tbody");
+
+              if(response == ""){
+                var tableRow = "<tr><td colspan='5' style='text-align: center;'>No Data Available</td></tr>";
+
+                tableBody.append(tableRow);
+              } else {
+                tableBody.html("");
+
+                response.forEach(element => {
+                  var tableRow = '';
+                    tableRow += "<tr>"
+                    tableRow += "<td>"
+                    tableRow += "<div>"
+                    tableRow += "<div class='form-check'>"
+                    tableRow += `<input class='form-check-input' type='radio' name='doctor_consulting' id="flexRadioDefault'${element.id}'" value="${element.employee_id}">`
+                    tableRow += "</div>"
+                    tableRow += "</div>"
+                    tableRow += "</td>"
+                    tableRow += "<td>"
+                    tableRow += "<div class='d-flex px-2 py-1'>"
+                    tableRow += "<div class='d-flex flex-column justify-content-center'>"
+                    tableRow += `<h6 class='mb-0 text-xs'>${element.first_name, " ", element.last_name}</h6>`
+                    tableRow += "</div>"
+                    tableRow += "</div>"
+                    tableRow += "</td>"
+                    tableRow += "<td>"
+                    tableRow += `<p class='text-xs font-weight-bold mb-0'>${element.position}</p>`
+                    tableRow += "</td>"
+                    tableRow += "<td class='align-middle text-center text-sm'>"
+                    tableRow += `<p class='text-xs font-weight-bold mb-0'>${element.available_from}</p>`
+                    tableRow += "</td>"
+                    tableRow += "<td class='align-middle text-center text-sm'>"
+                    tableRow += `<p class='text-xs font-weight-bold mb-0'>${element.available_to}</p>`
+                    tableRow += "</td>"
+                    tableRow += "</tr>"
+
+                  var tableBody = $("table tbody");
+                  tableBody.append(tableRow);
+                });
+              }
             },
             error: function(response){
               
