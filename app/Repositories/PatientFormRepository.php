@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\DayTable;
 use App\Models\PatientForm;
+use App\Models\Schedule;
 use Illuminate\Pipeline\Pipeline;
 use BotMan\BotMan\BotMan;
 use BotMan\BotMan\BotManFactory;
@@ -60,6 +61,14 @@ class PatientFormRepository
             'available_from' => $request->available_from,
             'available_to' => $request->available_to,
             'day' => $getDay->day,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        Schedule::insert([
+            'patient_information' => $request->name." ".$request->age." ".$request->gender." ".$request->current_medications." ".$request->reason_for_consultation,
+            'start_date' => $request->date." ".$request->available_from,
+            'end_date' => $request->date." ".$request->available_to,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);

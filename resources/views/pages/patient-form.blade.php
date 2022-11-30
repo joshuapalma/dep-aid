@@ -575,7 +575,7 @@
                                         <div class="col-md-12">
                                           <div class="form-group">
                                             <label for="example-date-input" class="form-control-label">Date</label>
-                                            <input class="form-control" type="date" value="" id="date-for-consultation">
+                                            <input class="form-control" type="date" name="date" value="" id="date-for-consultation">
                                           </div>
                                         </div>
                                       </div>
