@@ -380,7 +380,7 @@
                                         <div class="col-md-12 col-lg-6">
                                           @component('components.inputs.select')
                                             @slot('label', 'Gender')
-                                            @slot('options', [0 => 'Male', 1 => 'Female'])
+                                            @slot('options', ["Male" => 'Male', "Female" => 'Female'])
                                             @slot('attributes', [
                                                 'class' => 'form-control',
                                                 'name' => 'gender',
@@ -448,7 +448,7 @@
                                             @slot('attributes', [
                                                 'class' => 'form-control text-black',
                                                 'type' => 'number',
-                                                'name' => 'contact-number',
+                                                'name' => 'contact_number',
                                                 'id' => 'contact-number',
                                                 'placeholder' => 'Contact Number'
                                             ])          
@@ -782,6 +782,9 @@
                     tableRow += `<p class='text-xs font-weight-bold mb-0'>${element.available_to}</p>`
                     tableRow += "</td>"
                     tableRow += "</tr>"
+                    tableRow += `<input type='hidden' name='day' value='${selectDate}'>`
+                    tableRow += `<input type='hidden' name='available_from' value='${element.available_from}'>`
+                    tableRow += `<input type='hidden' name='available_to' value='${element.available_to}'>`
 
                   var tableBody = $("table tbody");
                   tableBody.append(tableRow);

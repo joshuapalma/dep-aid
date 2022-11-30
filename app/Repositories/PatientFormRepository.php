@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\DayTable;
 use App\Models\PatientForm;
 use Illuminate\Pipeline\Pipeline;
 use BotMan\BotMan\BotMan;
@@ -36,6 +37,8 @@ class PatientFormRepository
 
     public function storePatientForm($request)
     {
+        $getDay = DayTable::where('id', $request->day)->select('day')->first();
+
         $patientForm = PatientForm::insert([
             'name' => $request->name,
             'age' => $request->age,
@@ -45,7 +48,6 @@ class PatientFormRepository
             'birthdate' => $request->birthdate,
             'address' => $request->address,
             'contact_number' => $request->contact_number,
-            'vital_signs' => $request->vital_signs,
             'heart_rate' => $request->heart_rate,
             'blood_pressure' => $request->blood_pressure,
             'temperature' => $request->temperature,
@@ -54,6 +56,10 @@ class PatientFormRepository
             'allergies' => $request->allergies,
             'maintenance_medications' => $request->maintenance_medications,
             'current_medications' => $request->current_medications,
+            'doctor_consulting' => $request->doctor_consulting,
+            'available_from' => $request->available_from,
+            'available_to' => $request->available_to,
+            'day' => $getDay->day,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);

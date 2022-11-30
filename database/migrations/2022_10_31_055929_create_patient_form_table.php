@@ -23,9 +23,10 @@ return new class extends Migration
             $table->string('weight')->nullable();
             $table->string('address')->nullable();
             $table->string('contact_number')->nullable();
-            $table->dateTime('appointment')->nullable();
             $table->string('doctor_consulting')->nullable();
-            $table->string('vital_signs')->nullable();
+            $table->string('day')->nullable();
+            $table->string('available_from')->nullable();
+            $table->string('available_to')->nullable();
             $table->integer('heart_rate')->nullable();
             $table->string('blood_pressure')->nullable();
             $table->integer('temperature')->nullable();
