@@ -49,6 +49,7 @@ class PatientFormRepository
             'birthdate' => $request->birthdate,
             'address' => $request->address,
             'contact_number' => $request->contact_number,
+            // 'main_reason_for_consultation' => $request->main_reason_for_consultation,
             'heart_rate' => $request->heart_rate,
             'blood_pressure' => $request->blood_pressure,
             'temperature' => $request->temperature,

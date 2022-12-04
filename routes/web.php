@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AntibioticsController;
 use App\Http\Controllers\AntiInflammatoryController;
+use App\Http\Controllers\BotManController;
 use App\Http\Controllers\CardiacDrugsController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,8 @@ Route::post('/success', [MainController::class, 'store'])->name('patient-form.st
 
 //Get Schedule of Doctor for Patient Form
 Route::get('/get-schedules', [DoctorNurseController::class, 'getSchedules'])->name('getSchedules');
+
+Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle'])->name('handle');
 
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');

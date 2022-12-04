@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Patient;
+use App\Models\PatientForm;
 use Illuminate\Pipeline\Pipeline;
 use PDF;
 
@@ -14,7 +15,7 @@ class PatientsRepository
             'search' => isset($request->search) ? $request->search : null
         ];
 
-        $query = Patient::query();
+        $query = PatientForm::query();
 
         $result = app(Pipeline::class)
             ->send($query)

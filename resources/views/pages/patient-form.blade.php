@@ -20,6 +20,8 @@
         <!-- CSS Files -->
         <link id="pagestyle" href="assets/css/argon-dashboard.css" rel="stylesheet" />
         <link href="./assets/css/custom.css" rel="stylesheet" />
+
+        {{-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css"> --}}
     </head>
     {{-- <body style="background-image: url('img/medical.svg'); background-size: 70vw; display: absolute; background-attachment: fixed; background-repeat:no-repeat; background-position: center;"> 
         <div class="container-fluid">
@@ -659,6 +661,7 @@
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
     <script>
       var currentTab = 0; // Current tab is set to be the first tab (0)
       showTab(currentTab); // Display the current tab
@@ -797,5 +800,10 @@
           })
         })
       })
+
+      var botmanWidget = {
+	        aboutText: 'DEP-AID',
+	        introMessage: "✋ Hi! I'm DEP-AID Malaybalay Division"
+	    };
     </script>
 </html>

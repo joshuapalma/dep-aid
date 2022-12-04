@@ -12,7 +12,7 @@
                             @csrf
                             <button type="submit" class="btn bg-gradient-info z-index-2 me-2">Generate Report</button>
                         </form>
-                        <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addPatient">Add Patient</button>
+                        {{-- <button type="button" class="btn bg-gradient-success z-index-2" data-bs-toggle="modal" data-bs-target="#addPatient">Add Patient</button> --}}
                     </div>
                 </div>
             </div>
@@ -39,9 +39,9 @@
                                 <tr>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">ID</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">Patient Name</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Scheduled Appointment</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Scheduled Date</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Reason/s for Consultation</th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Remarks</th>
+                                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Remarks</th> --}}
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Action</th>
                                 </tr>
                               </thead>
@@ -52,19 +52,27 @@
                                             <p class="text-xs font-weight-bold table-text mb-0">{{ $row->id }}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($row->patient_name) }}</p>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ ucfirst($row->name) }}</p>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->scheduled_appointment)) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ date('M d, Y', strtotime($row->available_from)) }}</span>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold table-text mb-0">{{ $row->reasons_for_consultation }}</p>
+                                            <p class="text-xs font-weight-bold table-text mb-0">{{ $row->reason_for_consultation }}</p>
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             <p class="text-xs font-weight-bold table-text mb-0">{{ $row->remarks }}</p>
-                                        </td>
+                                        </td> --}}
                                         <td class="align-middle">
                                             <input type="hidden" id="patient-details-{{$row->id}}" data-detail="{{ $row }}">
+                                            <button 
+                                                type="button" 
+                                                class="btn bg-gradient-info z-index-2" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#viewPatient" 
+                                                onclick = "viewPatient('{{$row->id}}')">
+                                                View
+                                            </button>
                                             <button 
                                                 type="button" 
                                                 class="btn bg-gradient-warning z-index-2" 
@@ -104,7 +112,7 @@
             </div>
         </div>
     </div>
-    @include('modals.patient.create')
+    @include('modals.patient.view')
     @include('modals.patient.edit')
     @include('modals.patient.filter')
     @include('modals.delete')
@@ -112,21 +120,14 @@
 
 @push('js')
     <script>
-        // $('#add-patient-form').validate({
-        //     rules: {
-        //         patient_name: {
-        //             required: true
-        //         },
-        //         scheduled_appointment: {
-        //             required: true
-        //         },
-        //         reasons_for_consultation: {
-        //             required: true
-        //         },
-        //     },
-        //     errorElement: "span",
-        //     errorClass: "text-danger text-xs font-weight-bold",
-        // })
+        $('.close-modal').on('click', function(){
+            $('.sidenav').css('opacity', '100%');
+        })
+
+        $('#viewPatient').modal({
+            backdrop: 'static',
+            keyboard: false
+        })
 
         function formatDate(date) {
             var d = new Date(date),
@@ -140,6 +141,35 @@
                 day = '0' + day;
 
             return [year, month, day].join('-');
+        }
+
+        function viewPatient(id) {
+            const detail = $(`#patient-details-${id}`).data().detail;     
+            newscheduledAppointment = formatDate(detail.scheduled_appointment);
+            console.log(detail);
+            $('.sidenav').css('opacity', '50%');
+            
+            $('show-name').val(details.name);
+            $('show-age').val(details.age);
+            $('show-address').val(details.address);
+            $('show-gender').val(details.gender);
+            $('show-contact-number').val(details.contact_number);
+            $('show-birthdate').val(details.birthdate);
+            $('show-birthdate').val(details.birthdate);
+            $('show-height').val(details.height);
+            $('show-weight').val(details.weight);
+            $('show-heart-rate').val(details.heart_rate);
+            $('show-blood-pressure').val(details.blood_pressure);
+            $('show-oxygen-saturation').val(details.oxygen_saturation);
+            $('show-temperature').val(details.temperature);
+            $('show-allergies').val(details.allergies);
+            $('show-reason-for-consulting').val(details.reason_for_consulting);
+            $('show-current-medication').val(details.current_medication);
+            $('show-maintenance-medication').val(details.maintenance_medication);
+            $('show-doctor-consulting').val(details.doctor_consulting);
+            $('show-day').val(details.day);
+            $('show-available-from').val(details.available_from);
+            $('show-available-to').val(details.available_to);
         }
 
         function editPatient(id) {

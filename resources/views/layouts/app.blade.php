@@ -71,11 +71,6 @@
     <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
 
-    {{-- FOR SERVER --}}
-    {{-- <script src="/public/assets/js/core/popper.min.js"></script>
-    <script src="/public/assets/js/core/bootstrap.min.js"></script>
-    <script src="/public/assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="/public/assets/js/plugins/smooth-scrollbar.min.js"></script> --}}
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
