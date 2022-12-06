@@ -31,7 +31,8 @@ return new class extends Migration
             $table->string('blood_pressure')->nullable();
             $table->integer('temperature')->nullable();
             $table->integer('oxygen_saturation')->nullable();
-            $table->string('reason_for_consultation')->nullable();
+            $table->string('other_reason_for_consultation')->nullable();
+            $table->string('main_reason_for_consultation')->nullable();
             $table->string('allergies')->nullable();
             $table->string('maintenance_medications')->nullable();
             $table->string('current_medications')->nullable();

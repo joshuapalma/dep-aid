@@ -516,18 +516,62 @@
                                         </div>
                                       </div>
                                       <div class="row">
-                                        <div class="col-lg-6 col-md-12">
-                                          @component('components.inputs.input')
-                                            @slot('label', 'Reason for Consultation')
+                                        <div class="col-md-12 col-lg-6">
+                                          @component('components.inputs.select')
+                                            @slot('label', 'Main Reason For Consultation')
+                                            @slot('options', [
+                                              "Hypertension" => "Hypertension",
+                                              "Diabetes" => "Diabetes",
+                                              "Urinary Tract Infection" => "Urinary Tract Infection",
+                                              "Tubercolosis" =>  "Tubercolosis",
+                                              "Headache" =>  "Headache",
+                                              "Pneumonia" => "Pneumonia",
+                                              "Heart Disease" => "Heart Disease",
+                                              "Gastritis" =>  "Gastritis",
+                                              "Ulcer" => "Ulcer", 
+                                              "Colds / Flu" =>"Colds / Flu",
+                                              "Stomache Aches" => "Stomache Aches",
+                                              "Cough" => "Cough",
+                                              "Sore Throat" => "Sore Throat",
+                                              "Diarrhea" => "Sore Throat",
+                                              "Athritis" => "Athritis",
+                                              "Appendicitis" => "Appendicitis", 
+                                              "Asthma" =>  "Asthma" ,
+                                              "Cancer" => "Cancer",
+                                              "Bronchitis" =>  "Bronchitis",
+                                              "Chickenpox" => " Chickenpox",
+                                              "Constipation" => "Constipation",
+                                              "COVID" =>  "COVID",
+                                              "Hepatitis" => "Hepatitis",
+                                              "Malaria" => "Malaria",
+                                              "Dengue" =>  "Dengue",
+                                              "Osteoporosis" =>  "Osteoporosis",
+                                              "Sinusitis" =>  "Sinusitis",
+                                              "Stroke" =>  "Stroke",
+                                              "Tonsilitis" =>  "Tonsilitis",
+                                              ])
                                             @slot('attributes', [
-                                                'class' => 'form-control text-black',
-                                                'type' => 'text',
-                                                'name' => 'reason_for_consultation',
-                                                'id' => 'reason_for_consultation',
-                                                'placeholder' => 'Reason for Consultation'
+                                                'class' => 'form-control',
+                                                'name' => 'main_reason_for_consultation',
+                                                'id' => 'main_reason_for_consultation',
+                                                'value' => '',
+                                                'placeholder' => 'Select'
                                             ])          
                                           @endcomponent
                                         </div>
+                                        <div class="col-lg-6 col-md-12">
+                                          @component('components.inputs.input')
+                                            @slot('label', 'Other Reason for Consultation')
+                                            @slot('attributes', [
+                                                'class' => 'form-control text-black',
+                                                'type' => 'text',
+                                                'name' => 'other_reason_for_consultation',
+                                                'id' => 'other_reason_for_consultation',
+                                                'placeholder' => 'Other Reason for Consultation'
+                                            ])          
+                                          @endcomponent
+                                        </div>
+                                        
                                         <div class="col-lg-6 col-md-12">
                                           @component('components.inputs.input')
                                             @slot('label', 'Allergies')
