@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\PatientFormRepository;
+use App\Models\PatientForm;
 
 class MainController extends Controller
 {
@@ -89,5 +90,11 @@ class MainController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function done(PatientForm $id)
+    {
+        $this->patientForm->donePatient($id);
+        return redirect()->route('patients.index')->with('success', 'Patient Successfully Done');
     }
 }

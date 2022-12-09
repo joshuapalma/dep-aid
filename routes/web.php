@@ -35,6 +35,7 @@ use App\Http\Controllers\TopicalController;
 //Patient Form
 Route::get('/patient-form', [MainController::class, 'index'])->name('patient-form');
 Route::post('/success', [MainController::class, 'store'])->name('patient-form.store');
+Route::post('/done/{id}', [MainController::class, 'done'])->name('patients.done');
 
 //Get Schedule of Doctor for Patient Form
 Route::get('/get-schedules', [DoctorNurseController::class, 'getSchedules'])->name('getSchedules');

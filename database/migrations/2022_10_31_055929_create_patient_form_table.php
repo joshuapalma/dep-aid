@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('allergies')->nullable();
             $table->string('maintenance_medications')->nullable();
             $table->string('current_medications')->nullable();
+            $table->integer('is_done_consulting')->default('0');
             $table->timestamps();
         });
     }

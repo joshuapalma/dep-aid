@@ -61,7 +61,7 @@ class PatientFormRepository
             'doctor_consulting' => $request->doctor_consulting,
             'available_from' => $request->available_from,
             'available_to' => $request->available_to,
-            'day' => $getDay->day ,
+            // 'day' => $getDay->day ,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -75,5 +75,13 @@ class PatientFormRepository
         ]);
 
         return $patientForm;
+    }
+
+    public function donePatient($request) {
+        $query = PatientForm::where('id', $request->id)->update([
+            'is_done_consulting' => 1,
+        ]);
+
+        return $query;
     }
 }

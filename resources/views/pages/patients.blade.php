@@ -1,5 +1,6 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
+
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Patients'])
     <div class="container-fluid py-4">
@@ -46,6 +47,7 @@
                                 </tr>
                               </thead>
                               <tbody>
+
                                 @forelse ($patient as $index => $row)
                                     <tr class="text-center">
                                         <td>
@@ -90,6 +92,24 @@
                                                 onclick = "deletePatient(this)">
                                                 Delete
                                             </button>
+                                            @if($row->is_done_consulting)
+                                                <button
+                                                    type="button" 
+                                                    class="btn bg-gradient-success z-index-2 drop">
+                                                    Send
+                                                </button>
+                                            @else
+                                                <button 
+                                                    type="button" 
+                                                    class="btn bg-gradient-success z-index-2 drop" 
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#doneModal"
+                                                    data-url="{{ route('patients.done', $row->id) }}"
+                                                    onclick = "donePatient(this)">
+                                                    Done Consulting
+                                                </button>
+                                            @endif
+                                           
                                         </td>
                                     </tr>
                                 @empty
@@ -116,6 +136,7 @@
     @include('modals.patient.edit')
     @include('modals.patient.filter')
     @include('modals.delete')
+    @include('modals.done')
 @endsection
 
 @push('js')
@@ -124,10 +145,10 @@
             $('.sidenav').css('opacity', '100%');
         })
 
-        $('#viewPatient').modal({
-            backdrop: 'static',
-            keyboard: false
-        })
+        // $('#viewPatient').modal({
+        //     backdrop: 'static',
+        //     keyboard: false
+        // })
 
         function formatDate(date) {
             var d = new Date(date),
@@ -144,32 +165,33 @@
         }
 
         function viewPatient(id) {
-            const detail = $(`#patient-details-${id}`).data().detail;     
+            const detail = $(`#patient-details-${id}`).data().detail; 
+                
             newscheduledAppointment = formatDate(detail.scheduled_appointment);
             console.log(detail);
             $('.sidenav').css('opacity', '50%');
             
-            $('show-name').val(details.name);
-            $('show-age').val(details.age);
-            $('show-address').val(details.address);
-            $('show-gender').val(details.gender);
-            $('show-contact-number').val(details.contact_number);
-            $('show-birthdate').val(details.birthdate);
-            $('show-birthdate').val(details.birthdate);
-            $('show-height').val(details.height);
-            $('show-weight').val(details.weight);
-            $('show-heart-rate').val(details.heart_rate);
-            $('show-blood-pressure').val(details.blood_pressure);
-            $('show-oxygen-saturation').val(details.oxygen_saturation);
-            $('show-temperature').val(details.temperature);
-            $('show-allergies').val(details.allergies);
-            $('show-reason-for-consulting').val(details.reason_for_consulting);
-            $('show-current-medication').val(details.current_medication);
-            $('show-maintenance-medication').val(details.maintenance_medication);
-            $('show-doctor-consulting').val(details.doctor_consulting);
-            $('show-day').val(details.day);
-            $('show-available-from').val(details.available_from);
-            $('show-available-to').val(details.available_to);
+            $('#patient_name').val(detail.name);
+            $('#patient_age').val(detail.age);
+            $('#patient_address').val(detail.address);
+            $('#patient_gender').val(detail.gender);
+            $('#patient_contact_number').val(detail.contact_number);
+            $('#patient_birthdate').val(detail.birthdate);
+            $('#patient_height').val(detail.height);
+            $('#patient_weight').val(detail.weight);
+            $('#patient_heart_rate').val(detail.heart_rate);
+            $('#patient_blood_pressure').val(detail.blood_pressure);
+            $('#patient_oxygen_saturation').val(detail.oxygen_saturation);
+            $('#patient_temperature').val(detail.temperature);
+            $('#patient_allergies').val(detail.allergies);
+            $('#patient_main_reason_for_consultation').val(detail.main_reason_for_consultation);
+            $('#patient_other_reason_for_consultation').val(detail.other_reason_for_consultation);
+            $('#patient_current_medications').val(detail.current_medications);
+            $('#patient_maintenance_medications').val(detail.maintenance_medications);
+            $('#patient_doctor_consulting').val(detail.doctor_consulting);
+            $('#patient_day').val(detail.day);
+            $('#patient_available_from').val(detail.available_from);
+            $('#patient_available_to').val(detail.available_to);
         }
 
         function editPatient(id) {
@@ -187,6 +209,13 @@
             var data = $(btn).data();
             var url = data.url;
             $('#delete-form').attr('action', url);
+        }
+
+        function donePatient(btn) {
+            var data = $(btn).data();
+            console.log(data)
+            var url = data.url;
+            $('#done-form').attr('action', url);
         }
 
     </script>
