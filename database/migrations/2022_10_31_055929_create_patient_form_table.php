@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('weight')->nullable();
             $table->string('address')->nullable();
             $table->string('contact_number')->nullable();
+            $table->string('email')->nullable();
             $table->string('doctor_consulting')->nullable();
             $table->string('day')->nullable();
             $table->string('available_from')->nullable();

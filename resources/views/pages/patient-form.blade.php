@@ -457,6 +457,20 @@
                                           @endcomponent
                                         </div>
                                       </div>
+                                      <div class="row">
+                                        <div class="col-md-12 col-lg-6">
+                                          @component('components.inputs.input')
+                                            @slot('label', 'Email')
+                                            @slot('attributes', [
+                                                'class' => 'form-control text-black',
+                                                'type' => 'email',
+                                                'name' => 'email',
+                                                'id' => 'email',
+                                                'placeholder' => 'Email'
+                                            ])          
+                                          @endcomponent
+                                        </div>
+                                      </div>
                                     </div>
                                     
                                     <div class="tab">

@@ -49,6 +49,7 @@ class PatientFormRepository
             'birthdate' => $request->birthdate,
             'address' => $request->address,
             'contact_number' => $request->contact_number,
+            'email' => $request->email,
             'main_reason_for_consultation' => $request->main_reason_for_consultation,
             'heart_rate' => $request->heart_rate,
             'blood_pressure' => $request->blood_pressure,
@@ -77,7 +78,8 @@ class PatientFormRepository
         return $patientForm;
     }
 
-    public function donePatient($request) {
+    public function donePatient($request) 
+    {
         $query = PatientForm::where('id', $request->id)->update([
             'is_done_consulting' => 1,
         ]);

@@ -28,11 +28,11 @@
 @push('js')
     <script>
         scheduler.config.dblclick_create = false;
-        scheduler.config.details_on_dblclick = true;
-        scheduler.attachEvent("onDblClick", function (id, e){
-            return false;
-        })
-        scheduler.config.readonly = true;
+        // scheduler.config.details_on_dblclick = true;
+        // scheduler.attachEvent("onDblClick", function (id, e){
+        //     return false;
+        // })
+        // scheduler.config.readonly = true;
 
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
