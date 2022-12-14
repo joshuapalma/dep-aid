@@ -94,8 +94,11 @@
                                             </button>
                                             @if($row->is_done_consulting)
                                                 <button
-                                                    type="button" 
-                                                    class="btn bg-gradient-success z-index-2 drop">
+                                                    type="button"
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#sendModal" 
+                                                    class="btn bg-gradient-success z-index-2 drop"
+                                                    onclick="sendDiagnosis('{{$row->id}}')">
                                                     Send
                                                 </button>
                                             @else
@@ -137,6 +140,7 @@
     @include('modals.patient.filter')
     @include('modals.delete')
     @include('modals.done')
+    @include('modals.send')
 @endsection
 
 @push('js')
@@ -216,6 +220,12 @@
             console.log(data)
             var url = data.url;
             $('#done-form').attr('action', url);
+        }
+
+        function sendDiagnosis(id) {
+            const detail = $(`#patient-details-${id}`).data().detail;
+
+            $('#patient-id').attr('value', detail.id);
         }
 
     </script>
