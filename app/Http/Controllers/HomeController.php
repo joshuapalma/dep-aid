@@ -36,6 +36,8 @@ class HomeController extends Controller
             'anti-inflammatory' => Inventory::where('type', 'Anti-Inflammatory')->count(),
         ];
 
-        return view('pages.dashboard', compact('patients', 'schedule', 'inventory'));
+        $getTopMedicines = Inventory::orderBy('quantity', 'DESC')->select('medicine_name', 'quantity')->take(3)->get();
+
+        return view('pages.dashboard')->with(['patients' => $patients, 'schedule' => $schedule, 'inventory' => $inventory, 'getTopMedicines' => $getTopMedicines]);
     }
 }

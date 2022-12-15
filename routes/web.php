@@ -30,7 +30,9 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\SendDiagnosisPrescription;
 use App\Http\Controllers\TopicalController;
+use App\Mail\SendMail;
 
 //Patient Form
 Route::get('/patient-form', [MainController::class, 'index'])->name('patient-form');
@@ -109,4 +111,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('/topicals/update/{id}', [TopicalController::class, 'update'])->name('topicals.update');
 	Route::delete('/topicals/destroy/{id}', [TopicalController::class, 'destroy'])->name('topicals.destroy');
 	Route::post('/topicals/generate-pdf', [TopicalController::class, 'generatePdf'])->name('topicals.generatePdf');
+
+	Route::post('/send-prescription-diagnosis', [SendDiagnosisPrescription::class, 'store'])->name('send-prescription-diagnosis.store');
 });

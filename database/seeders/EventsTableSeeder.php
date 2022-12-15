@@ -27,6 +27,18 @@ class EventsTableSeeder extends Seeder
             ['id'=>5, 'patient_information'=>'Event #5', 'start_date'=>'2022-11-20 08:00:00',
                  'end_date'=>'2022-11-20 11:00:00'],
             ['id'=>6, 'patient_information'=>'Event #6', 'start_date'=>'2022-11-25 08:00:00',
+                 'end_date'=>'2022-11-25 11:00:00'],
+            ['id'=>7, 'patient_information'=>'Event #7', 'start_date'=>'2022-11-05 08:00:00',
+                 'end_date'=>'2022-11-05 11:00:00'],
+            ['id'=>8, 'patient_information'=>'Event #8', 'start_date'=>'2022-11-06 15:00:00',
+                 'end_date'=>'2022-11-06 16:30:00'],
+            ['id'=>9, 'patient_information'=>'Event #9', 'start_date'=>'2022-11-04 00:00:00',
+                 'end_date'=>'2022-11-20 00:00:00'],
+            ['id'=>10, 'patient_information'=>'Event #10', 'start_date'=>'2022-11-01 08:00:00',
+                 'end_date'=>'2022-11-01 11:00:00'],
+            ['id'=>11, 'patient_information'=>'Event #11', 'start_date'=>'2022-11-20 08:00:00',
+                 'end_date'=>'2022-11-20 11:00:00'],
+            ['id'=>12, 'patient_information'=>'Event #12', 'start_date'=>'2022-11-25 08:00:00',
                  'end_date'=>'2022-11-25 11:00:00']
         ]);
     }

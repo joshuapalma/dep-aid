@@ -10,8 +10,6 @@ class SendDiagnosisPrescriptionRespository
 {
     public function sendEmail ($request)
     {
-        dd($request->all());
-
         $query = SendDiagnosis::create([
             'patient_name' => $request->patient_id,
             'diagnosis' => $request->diagnosis,
@@ -19,8 +17,6 @@ class SendDiagnosisPrescriptionRespository
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-
-        
 
         return $query;
     }   
