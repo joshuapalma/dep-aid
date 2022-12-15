@@ -7,8 +7,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="{{ route('send-prescription-diagnosis.store') }}" method="POST" id="send-diagnosis-form" enctype="multipart/form-data">
-            @method('PUT')
+        <form action="#" method="POST" id="send-diagnosis-form" enctype="multipart/form-data">
             @csrf
             <input type="hidden" id="patient-id" name="patient_id">
             <div class="modal-body">

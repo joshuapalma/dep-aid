@@ -112,5 +112,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::delete('/topicals/destroy/{id}', [TopicalController::class, 'destroy'])->name('topicals.destroy');
 	Route::post('/topicals/generate-pdf', [TopicalController::class, 'generatePdf'])->name('topicals.generatePdf');
 
-	Route::post('/send-prescription-diagnosis', [SendDiagnosisPrescription::class, 'store'])->name('send-prescription-diagnosis.store');
+	Route::post('/patients/send-prescription-diagnosis/{id}', [PatientsController::class, 'storeDiagnosis'])->name('send-prescription-diagnosis.store');
+
 });

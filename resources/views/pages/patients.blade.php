@@ -97,8 +97,8 @@
                                                     type="button"
                                                     data-bs-toggle="modal" 
                                                     data-bs-target="#sendModal" 
-                                                    class="btn bg-gradient-success z-index-2 drop"
-                                                    onclick="sendDiagnosis('{{$row->id}}')">
+                                                    class="btn bg-gradient-success z-index-2 drop send-diagnosis"
+                                                    onclick = "sendDiagnosis('{{ $row->id }}', this)">
                                                     Send
                                                 </button>
                                             @else
@@ -222,10 +222,10 @@
             $('#done-form').attr('action', url);
         }
 
-        function sendDiagnosis(id) {
+        function sendDiagnosis(id, btn) {
             const detail = $(`#patient-details-${id}`).data().detail;
-
             $('#patient-id').attr('value', detail.id);
+            $('#send-diagnosis-form').attr('action', `/patients/send-prescription-diagnosis/${detail.id}` );
         }
 
     </script>

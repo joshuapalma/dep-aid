@@ -101,4 +101,10 @@ class PatientsController extends Controller
         $result = $this->patient->generatePdf();
         return $result;
     }
+
+    public function storeDiagnosis(Request $request)
+    {
+        $this->sendDiagnosis->sendEmail($request);
+        return redirect()->route('patients.index')->with('success', 'Diagnosis and Prescription sent successfully');
+    }
 }

@@ -4,7 +4,9 @@ namespace App\Repositories;
 
 use App\Models\Patient;
 use App\Models\PatientForm;
+use App\Models\SendDiagnosis;
 use Illuminate\Pipeline\Pipeline;
+use Illuminate\Support\Carbon;
 use PDF;
 
 class PatientsRepository
@@ -74,4 +76,17 @@ class PatientsRepository
 
         return $pdf->download('DEP-AID Patient List Report.pdf');
     }
+
+    public function sendEmail ($request)
+    {
+        $query = SendDiagnosis::create([
+            'patient_name' => $request->patient_id,
+            'diagnosis' => $request->diagnosis,
+            'prescriptions' => $request->prescriptions,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        return $query;
+    }   
 }
