@@ -35,6 +35,7 @@ class CardiacDrugsRepository
         $query = Inventory::insertGetId([
             'medicine_name' => $request->medicine_name,
             'brand' => $request->brand,
+            'quantity' => $request->quantity,
             'manufacturer_date' => $request->manufacturer_date,
             'expiration_date' => $request->expiration_date,
             'type' => $request->type,
@@ -50,6 +51,7 @@ class CardiacDrugsRepository
         $query = Inventory::where('id', $cardiacDrugsId)->update([
             'medicine_name' => $request->medicine_name,
             'brand' => $request->brand,
+            'quantity' => $request->quantity,
             'manufacturer_date' => $request->manufacturer_date,
             'expiration_date' => $request->expiration_date,
             'type' => $request->type,

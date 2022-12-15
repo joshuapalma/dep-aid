@@ -40,6 +40,7 @@
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">ID</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">Medicine Name</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">Brand</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text ps-2">Quantity</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Manufacturer Date</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Expiration Date</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 table-text">Action</th>
@@ -56,6 +57,9 @@
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <span class="text-secondary text-xs font-weight-bold table-text">{{ ucfirst($row->brand) }}</span>
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <span class="text-secondary text-xs font-weight-bold table-text">{{ $row->quantity }}</span>
                                         </td>
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold table-text">{{ date('m/d/Y', strtotime($row->manufacturer_date)) }}</span>
@@ -132,7 +136,8 @@
             newExpirationDate = formatDate(detail.expiration_date);
 
             $('#edit_medicine_name').val(detail.medicine_name);            
-            $('#edit_brand').val(detail.brand);            
+            $('#edit_brand').val(detail.brand);     
+            $('#edit_quantity').val(detail.quantity);        
             $('#edit_manufacturer_date').val(newManufacturerDate);
             $('#edit_expiration_date').val(newExpirationDate);
             $('#edit-anti-inflammatory-form').attr('action', `/anti-inflammatory/update/${detail.id}`)

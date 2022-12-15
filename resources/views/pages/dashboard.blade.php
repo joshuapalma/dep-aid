@@ -217,12 +217,16 @@
             chartBar.draw(dataBar, google.charts.Bar.convertOptions(optionsBar));
         }
 
+        const topMedicines = JSON.parse('{!! $getTopMedicines !!}')
+
         function drawChartPie() {
             var dataPie = google.visualization.arrayToDataTable([
-                ['Medicines', 'Quantity'],
-                ['Brand 1',     20],
-                ['Brand 2',      19],
-                ['Brand 3',  15]
+                topMedicines.forEach(function (element) {
+                    [
+                        // ['Medicines', 'Quantity'],
+                        ['brand1', 20]
+                    ]
+                })
             ]);
 
             var optionsPie = {

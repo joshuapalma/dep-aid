@@ -33,6 +33,7 @@ class TopicalsRepository
         $query = Inventory::insertGetId([
             'medicine_name' => $request->medicine_name,
             'brand' => $request->brand,
+            'quantity' => $request->quantity,
             'manufacturer_date' => $request->manufacturer_date,
             'expiration_date' => $request->expiration_date,
             'type' => $request->type,
@@ -48,6 +49,7 @@ class TopicalsRepository
         $query = Inventory::where('id', $topicalsId->id)->update([
             'medicine_name' => $request->medicine_name,
             'brand' => $request->brand,
+            'quantity' => $request->quantity,
             'manufacturer_date' => $request->manufacturer_date,
             'expiration_date' => $request->expiration_date,
             'type' => $request->type,
