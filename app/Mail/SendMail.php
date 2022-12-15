@@ -34,7 +34,7 @@ class SendMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address('joshuapalma57@gmail.com', 'DEP-AID'),
+            from: new Address('depaid93@gmail.com', 'DEP-AID'),
             subject: 'Diagnosis and Prescription',
         );
     }
