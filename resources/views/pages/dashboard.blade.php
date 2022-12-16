@@ -217,16 +217,18 @@
             chartBar.draw(dataBar, google.charts.Bar.convertOptions(optionsBar));
         }
 
-        const topMedicines = JSON.parse('{!! $getTopMedicines !!}')
-
         function drawChartPie() {
+            const topMedicines = JSON.parse('{!! $getTopMedicines !!}');
+            var newArr = [];
+
+            topMedicines.filter(function (element) {
+                var arr = [`${element.medicine_name}`, parseInt(`${element.quantity}`)];
+                newArr.push(arr)
+            });
+            
             var dataPie = google.visualization.arrayToDataTable([
-                topMedicines.forEach(function (element) {
-                    [
-                        // ['Medicines', 'Quantity'],
-                        ['brand1', 20]
-                    ]
-                })
+                    ['Medicines', 'Quantity'],
+                   ...newArr
             ]);
 
             var optionsPie = {
