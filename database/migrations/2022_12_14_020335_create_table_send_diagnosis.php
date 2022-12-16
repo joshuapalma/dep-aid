@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('table_send_diagnosis', function (Blueprint $table) {
             $table->id();
             $table->string('patient_name');
-            $table->string('diagnosis');
-            $table->string('prescription');
+            $table->string('email');
+            $table->string('diagnosis')->nullable();
+            $table->string('prescription')->nullable();
             $table->timestamps();
         });
     }

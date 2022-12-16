@@ -224,7 +224,8 @@
 
         function sendDiagnosis(id, btn) {
             const detail = $(`#patient-details-${id}`).data().detail;
-            $('#patient-id').attr('value', detail.id);
+            console.log(detail)
+            $('#patient-name').attr('value', detail.name);
             $('#patient-email').attr('value', detail.email);
             $('#send-diagnosis-form').attr('action', `/send-prescription-diagnosis/${detail.id}` );
         }

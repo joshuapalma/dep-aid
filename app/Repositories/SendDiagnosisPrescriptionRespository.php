@@ -12,6 +12,7 @@ class SendDiagnosisPrescriptionRespository
 {
     public function sendEmail ($request)
     {
+        dd($request->all());
         $query = SendDiagnosis::create([
             'patient_name' => $request->patient_id,
             'diagnosis' => $request->diagnosis,
