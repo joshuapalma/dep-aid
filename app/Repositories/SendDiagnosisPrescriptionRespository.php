@@ -5,6 +5,8 @@ namespace App\Repositories;
 use App\Models\PatientForm;
 use App\Models\SendDiagnosis;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class SendDiagnosisPrescriptionRespository
 {
@@ -18,6 +20,16 @@ class SendDiagnosisPrescriptionRespository
             'updated_at' => Carbon::now(),
         ]);
 
+        $data = [
+            'title' => 'Mail from Dep-Aid',
+            'subtitle' => 'Diagnosis and Prescriptions',
+            'patient_name' => $request->patient_name,
+            'diagnosis' => $request->diagnosis,
+            'prescriptions' => $request->prescriptions,
+        ];
+         
+        Mail::to($request->email)->send(new SendMail($data));
+           
         return $query;
     }   
 }

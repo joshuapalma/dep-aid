@@ -33,11 +33,13 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SendDiagnosisPrescription;
 use App\Http\Controllers\TopicalController;
 use App\Mail\SendMail;
+use App\Models\SendDiagnosis;
 
 //Patient Form
 Route::get('/patient-form', [MainController::class, 'index'])->name('patient-form');
 Route::post('/success', [MainController::class, 'store'])->name('patient-form.store');
 Route::post('/done/{id}', [MainController::class, 'done'])->name('patients.done');
+
 
 //Get Schedule of Doctor for Patient Form
 Route::get('/get-schedules', [DoctorNurseController::class, 'getSchedules'])->name('getSchedules');
@@ -112,6 +114,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::delete('/topicals/destroy/{id}', [TopicalController::class, 'destroy'])->name('topicals.destroy');
 	Route::post('/topicals/generate-pdf', [TopicalController::class, 'generatePdf'])->name('topicals.generatePdf');
 
-	Route::post('/patients/send-prescription-diagnosis/{id}', [PatientsController::class, 'storeDiagnosis'])->name('send-prescription-diagnosis.store');
+	Route::post('/send-prescription-diagnosis/{id}', [SendDiagnosisPrescription::class, 'store'])->name('send-prescription-diagnosis.store');
 
 });

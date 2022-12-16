@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SendDiagnosis extends Model
 {
     use HasFactory;
+
+    protected $table = 'table_send_diagnosis';
+    protected $fillable = ['patient_name'];
 }

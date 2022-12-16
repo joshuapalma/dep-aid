@@ -10,6 +10,7 @@
         <form action="#" method="POST" id="send-diagnosis-form" enctype="multipart/form-data">
             @csrf
             <input type="hidden" id="patient-id" name="patient_id">
+            <input type="hidden" id="patient-email" name="patient_email">
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
@@ -18,7 +19,7 @@
                  </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <textarea id="diagnosis" name="diagnosis" rows="10" cols="53"></textarea>
+                        <textarea id="diagnosis" name="diagnosis" rows="8" cols="53"></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -28,7 +29,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <textarea id="prescriptions" name="prescriptions" rows="10" cols="53"></textarea>
+                        <textarea id="prescriptions" name="prescriptions" rows="8" cols="53"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

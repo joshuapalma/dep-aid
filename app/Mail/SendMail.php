@@ -25,39 +25,15 @@ class SendMail extends Mailable
     {
         $this->details = $details;
     }
-
+  
     /**
-     * Get the message envelope.
+     * Build the message.
      *
-     * @return \Illuminate\Mail\Mailables\Envelope
+     * @return $this
      */
-    public function envelope()
+    public function build()
     {
-        return new Envelope(
-            from: new Address('depaid93@gmail.com', 'DEP-AID'),
-            subject: 'Diagnosis and Prescription',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
-    public function content()
-    {
-        return new Content(
-            view: 'email.send',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
-    public function attachments()
-    {
-        return [];
+        return $this->subject('Mail from Dep-Aid Malaybalay')
+                    ->view('emails.send');
     }
 }
