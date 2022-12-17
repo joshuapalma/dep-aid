@@ -26,6 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(EventsTableSeeder::class);
         $this->call(DaySeeder::class);
         $this->call(InventorySeeder::class);
-        $this->call(PatientSeeder::class);
+        $this->call(PatientFormSeeder::class);
     }
 }

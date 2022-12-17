@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\PatientForm;
 
-class PatientSeeder extends Seeder
+class PatientFormSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,6 @@ class PatientSeeder extends Seeder
      */
     public function run()
     {
-        //
+        PatientForm::factory()->count(100)->create();
     }
 }
