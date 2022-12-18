@@ -200,9 +200,28 @@
         google.charts.setOnLoadCallback(drawChartPie);
 
         function drawChartBar() {
+
+            const illnesses = JSON.parse('{!! $illnesses !!}');
+            var illnessNameArr = [];
+            var illnessCountArr = [];
+
+            illnesses.forEach(element => {
+               var newIllnessNameArr = [`${element.main_reason_for_consultation}`]
+               var newIllnessCountArr = [parseInt(`${element.illnessCount}`)]
+
+               illnessNameArr.push(newIllnessNameArr)
+               illnessCountArr.push(newIllnessCountArr)
+            })
+
+            const flatIllnessNameArr = illnessNameArr.flat(1);
+            const flatIllnessCountArr = illnessCountArr.flat(1);
+
+            console.log(flatIllnessNameArr, flatIllnessCountArr)
+
+
             var dataBar = google.visualization.arrayToDataTable([
-                ['Year', 'Illness 1', 'Illness 2', 'Illness 3', 'Illness 4', 'Illness 5'],
-                ['2022', 1000, 400, 200, 300, 500]
+                ['Year', ...flatIllnessNameArr],
+                ['2022', ...flatIllnessCountArr]
             ]);
 
             var optionsBar = {
