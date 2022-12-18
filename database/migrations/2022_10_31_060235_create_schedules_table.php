@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->string('patient_information');
+            $table->string('text');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->timestamps();

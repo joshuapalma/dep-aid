@@ -15,10 +15,10 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        $result = Schedule::get();
+        $result = new Schedule();
 
         return response()->json([
-            "data" => $result
+            "data" => $result->get()
         ]);
     }
 
