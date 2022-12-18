@@ -44,8 +44,12 @@ Route::post('/done/{id}', [MainController::class, 'done'])->name('patients.done'
 //Get Schedule of Doctor for Patient Form
 Route::get('/get-schedules', [DoctorNurseController::class, 'getSchedules'])->name('getSchedules');
 
-Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle'])->name('handle');
+//FOR LIVE USE ONLY
+Route::match(['get', 'post'], 'public/botman', [BotManController::class, 'handle'])->name('handle'); 
 
+//FOR LOCAL USE ONLY
+Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle'])->name('handle'); 
+ 
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');

@@ -861,7 +861,7 @@
 
       var botmanWidget = {
 	        aboutText: 'DEP-AID',
-	        introMessage: "✋ Hi! I'm DEP-AID Malaybalay Division"
+	        introMessage: "✋ Hi! I'm DEP-AID Malaybalay Division. \n How can I help you? \n Please select your queries: Schedule Of Appointment, Things Needed to Bring, Link of FB Page \n",
 	    };
     </script>
 </html>
