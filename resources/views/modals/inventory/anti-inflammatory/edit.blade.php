@@ -40,7 +40,12 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-2">
+                        <a href="javascript:void(0)" class="btn btn-default mt-4 quantity-btn" id="minus-btn">
+                            <i class="fa-solid fa-minus"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-8">
                         @component('components.inputs.input')
                             @slot('label', 'Quantity')
                             @slot('attributes', [
@@ -52,6 +57,11 @@
                                 'value' => '',
                             ])          
                         @endcomponent
+                    </div>
+                    <div class="col-md-2">
+                        <a href="javascript:void(0)" class="btn btn-default mt-4 quantity-btn" id="add-btn">
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="row">

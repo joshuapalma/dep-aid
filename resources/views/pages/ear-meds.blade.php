@@ -148,5 +148,18 @@
             var url = data.url;
             $('#delete-form').attr('action', url);
         }
+
+        $('.quantity-btn').on('click', function(){
+            console.log($(this).attr('id'))
+
+            if ($(this).attr('id') == 'add-btn') {
+                var getInput = $('#edit_quantity').val();
+                var newValue = $('#edit_quantity').val(parseInt(getInput) + 1)
+            } else {
+                var getInput = $('#edit_quantity').val();
+                var newValue = $('#edit_quantity').val(parseInt(getInput) - 1)
+            }
+
+        })
     </script>
 @endpush
