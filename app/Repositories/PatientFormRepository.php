@@ -68,7 +68,7 @@ class PatientFormRepository
         ]);
 
         Schedule::insert([
-            'patient_information' => $request->name." ".$request->age." ".$request->gender." ".$request->current_medications." ".$request->reason_for_consultation,
+            'text' => $request->name." ".$request->age." ".$request->gender." ".$request->current_medications." ".$request->reason_for_consultation,
             'start_date' => $request->date." ".$request->available_from,
             'end_date' => $request->date." ".$request->available_to,
             'created_at' => \Carbon\Carbon::now(),

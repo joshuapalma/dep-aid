@@ -822,7 +822,7 @@
                     tableRow += "<td>"
                     tableRow += "<div>"
                     tableRow += "<div class='form-check'>"
-                    tableRow += `<input class='form-check-input' type='radio' name='doctor_consulting' id="flexRadioDefault'${element.id}'" value="${element.employee_id}">`
+                    tableRow += `<input class='form-check-input doctor-consulting' type='radio' name='doctor_consulting' id="flexRadioDefault'${element.id}'" value="${element.employee_id}">`
                     tableRow += "</div>"
                     tableRow += "</div>"
                     tableRow += "</td>"
