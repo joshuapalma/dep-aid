@@ -38,7 +38,7 @@ class EventsTableSeeder extends Seeder
                  'end_date'=>'2022-12-01 12:00:00'],
             ['id'=>12, 'text'=>'Patient #12', 'start_date'=>'2022-12-20 08:00:00',
                  'end_date'=>'2022-12-20 12:00:00'],
-            ['id'=>12, 'text'=>'Patient #12', 'start_date'=>'2022-12-25 08:00:00',
+            ['id'=>13, 'text'=>'Patient #12', 'start_date'=>'2022-12-25 08:00:00',
                  'end_date'=>'2022-12-25 12:00:00']
         ]);
     }
